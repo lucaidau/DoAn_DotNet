@@ -11,7 +11,18 @@ namespace DA_QuanLiThuVien.ViewModels
     {
         public LoginViewModel LoginVM { get; set; }
         public RegisterViewModel RegisterVM { get; set; }
-        public int SelectedTabIndex { get => _selectedTabIndex; set { _selectedTabIndex = value; OnPropertyChanged(); } }
+        public int SelectedTabIndex { get => _selectedTabIndex; 
+            set 
+            {
+                _selectedTabIndex = value; 
+                OnPropertyChanged(); 
+
+                if(_selectedTabIndex == 1)
+                {
+                    LoginVM.UpdateUsernameSession();
+                }
+            } 
+        }
 
         private int _selectedTabIndex;
         public AuthViewModel()
@@ -19,5 +30,6 @@ namespace DA_QuanLiThuVien.ViewModels
             LoginVM = new LoginViewModel();
             RegisterVM = new RegisterViewModel(this);
         }
+
     }
 }

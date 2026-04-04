@@ -75,45 +75,24 @@ namespace DA_QuanLiThuVien.ViewModels
             {
                 using (var db = new QLThuVienEntities())
                 {
-                    var isExist = db.TAI_KHOAN.Any(t => t.TenTK == NewUser.UserName || t.SDT == NewUser.PhoneNumber);
-                    if (isExist)
-                    {
-                        ErrMessage = "Tên đăng nhập hoặc số điện thoại đã tồn tại.";
-                        return;
-                    }
-                    var NewUserAccount = new TAI_KHOAN()
-                    {
-                        TenTK = NewUser.UserName,
-                        HashMK = SercurityHelper.HashPassword(NewUser.Password),
-                        SDT = NewUser.PhoneNumber,
-                        HoTen = NewUser.FullName,
-                        GioiTinh = NewUser.Gender,
-                        Email = NewUser.Email
-                    };
-                    db.TAI_KHOAN.Add(NewUserAccount);
-                    
-                    if(NewUser.Role)
-                    {
-                        var librarian = new THU_THU()
-                        {
-                            IDTaiKhoan = NewUserAccount.IDTaiKhoan
-                        };
-                        db.THU_THU.Add(librarian);
-                    }
-                    else
-                    {
-                        var reader = new DOC_GIA()
-                        {
-                            IDTaiKhoan = NewUserAccount.IDTaiKhoan,
-                            TrangThai = false
-                        };
-                        db.DOC_GIA.Add(reader);
-                    }
-                    await db.SaveChangesAsync();
+                    var res = db.sp_DangKi
+                        (
+                        NewUser.FullName,
+                        NewUser.UserName,
+                        NewUser.PhoneNumber,
+                        NewUser.Email,
+                        NewUser.Gender,
+                        SercurityHelper.HashPassword(NewUser.Password),
+                        NewUser.Role
+                        ).FirstOrDefault();
+
+                    if (res == 1) ErrMessage = "Đăng kí thành công";
+                    else if (res == 0) ErrMessage = "Tên tài khoản đã tồn tại. Vui lòng chọn tên khác.";
+                    else ErrMessage = "Đăng kí thất bại. Vui lòng thử lại.";
                 }
                 UserSession.UserName = NewUser.UserName;
 
-                ErrMessage = "Đăng ký thành công. ";
+                
 
                 await Task.Delay(1000);
 
@@ -129,7 +108,7 @@ namespace DA_QuanLiThuVien.ViewModels
             }
             catch (Exception ex)
             {
-                ErrMessage = "Lỗi Kết Nối!!!";
+                ErrMessage = "Lỗi Kết Nối: " + ex.Message;
                
             }
 

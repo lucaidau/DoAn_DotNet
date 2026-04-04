@@ -8,25 +8,30 @@ CREATE PROCEDURE sp_DangKi
 	@role BIT
 AS
 	BEGIN
-		IF EXISTS (SELECT 1 FROM TAI_KHOAN WHERE TenTK = @userName AND SDT = @phoneNumber)
-			BEGIN
-				SELECT 0 AS Result;
-				RETURN;
-			END
-		
-		INSERT INTO TAI_KHOAN(TenTK, HashMK, SDT, HoTen, GioiTinh, Email)
-		VALUES(@userName, @hashPass, @phoneNumber, @fullName, @gender, @email)
+		BEGIN TRY
+			BEGIN TRANSACTION
+				IF EXISTS (SELECT 1 FROM TAI_KHOAN WHERE @userName = TenTK AND @hashPass = HashMK)
+					BEGIN
+						ROLLBACK TRANSACTION
+						SELECT 0 AS Result;
+						RETURN;
+					END
 
-		DECLARE @NewID INT = SCOPE_IDENTITY();
+				INSERT INTO TAI_KHOAN(TenTK, HashMK, SDT, HoTen, GioiTinh, Email) VALUES 
+				(@userName, @hashPass, @phoneNumber, @fullName, @gender, @email)
 
-		IF (@role = 1)
-			BEGIN
-				INSERT INTO THU_THU(IDTaiKhoan) VALUES(@NewID)
-			END	
+				DECLARE @NewID INT = SCOPE_IDENTITY();
 
-		ELSE
-			BEGIN
-				INSERT INTO DOC_GIA(IDTaiKhoan) VALUES(@NewID)
-			END
-		SELECT 1 AS Result;
+				IF(@role = 1)
+					INSERT INTO THU_THU(IDTaiKhoan) VALUES(@NewID)
+				ELSE
+					INSERT INTO DOC_GIA (IDTaiKhoan) VALUES (@NewID)
+				COMMIT TRANSACTION
+				SELECT 1 AS Result;
+		END TRY
+
+		BEGIN CATCH
+			IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+			SELECT -1 AS Result;
+		END CATCH
 	END

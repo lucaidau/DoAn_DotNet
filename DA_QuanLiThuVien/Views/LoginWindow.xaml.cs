@@ -22,7 +22,7 @@ namespace DA_QuanLiThuVien.Views
             LoginViewModel loginVM = PasswordInput.DataContext as LoginViewModel;
             if (loginVM != null)
             {
-                
+                loginVM.Password = PasswordInput.Password;
             }
         }
 
@@ -34,11 +34,6 @@ namespace DA_QuanLiThuVien.Views
             {
                 registerVM.NewUser.Password = reg_PassBox.Password;
             }
-        }
-
-        private void reg_PassBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
-        {
-
         }
 
         private void NumberOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
