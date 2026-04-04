@@ -83,7 +83,7 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
                     <GroupBox Header="MENU CHỨC NĂNG" Foreground="#324967" FontWeight="Bold" FontSize="14" BorderThickness="0" Margin="0" Style="{x:Null}">
                         <StackPanel Margin="0,15,0,0">
-                            <!-- Menu Thủ thư -->
+                            
                             <StackPanel x:Name="MenuThuThu" Visibility="Visible">
                                 <Button x:Name="BtnQuanLySach" Content="Quản lý sách" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnQuanLySach_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
                                 <Button x:Name="BtnDocGia" Content="Độc giả" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnDocGia_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
@@ -92,14 +92,14 @@
                                 <Button x:Name="BtnCaiDat" Content="Cài đặt hệ thống" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnCaiDat_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
                             </StackPanel>
 
-                            <!-- Menu Độc giả -->
+                            
                             <StackPanel x:Name="MenuDocGia" Visibility="Collapsed">
                                 <Button x:Name="BtnTimKiemSach" Content="Tìm kiếm sách" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnTimKiemSach_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
                                 <Button x:Name="BtnSachDangMuon" Content="Sách đang mượn" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnSachDangMuon_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
                                 <Button x:Name="BtnThongTinCaNhan" Content="Thông tin cá nhân" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnThongTinCaNhan_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
                             </StackPanel>
 
-                            <!-- Nút Đăng xuất chung -->
+                            
                             <Button x:Name="BtnDangXuat" Content="Đăng xuất" Height="40" Margin="0,20,0,8" Background="#FFEAEA" Foreground="#B42318" FontWeight="Bold" Click="BtnDangXuat_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" Cursor="Hand" />
                         </StackPanel>
                     </GroupBox>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DA_QuanLiThuVien.Views.UserControls.ThuThu.UcQuanLySach"
+<UserControl x:Class="DA_QuanLiThuVien.Views.UserControls.ThuThu.UcQuanLySach"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -24,10 +24,70 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <TextBox Grid.Column="0" Margin="0,0,10,0" Height="36" Padding="10,8" Text="{Binding NewTitle, UpdateSourceTrigger=PropertyChanged}" ToolTip="Tiêu đề sách" />
-                    <TextBox Grid.Column="1" Margin="0,0,10,0" Height="36" Padding="10,8" Text="{Binding NewAuthor, UpdateSourceTrigger=PropertyChanged}" ToolTip="Tác giả" />
-                    <TextBox Grid.Column="2" Margin="0,0,10,0" Height="36" Padding="10,8" Text="{Binding NewCategory, UpdateSourceTrigger=PropertyChanged}" ToolTip="Thể loại" />
-                    <TextBox Grid.Column="3" Margin="0,0,10,0" Height="36" Padding="10,8" ToolTip="Tìm theo tên sách / mã ISBN" />
+                    <Grid Grid.Column="0" Margin="0,0,10,0">
+                        <TextBox x:Name="txtTieuDeSach" Height="36" Padding="10,8" VerticalContentAlignment="Center" Text="{Binding NewTitle, UpdateSourceTrigger=PropertyChanged}" ToolTip="Tiêu đề sách" />
+                        <TextBlock Text="Tiêu đề sách" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtTieuDeSach}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Margin="0,0,10,0">
+                        <TextBox x:Name="txtTacGia" Height="36" Padding="10,8" VerticalContentAlignment="Center" Text="{Binding NewAuthor, UpdateSourceTrigger=PropertyChanged}" ToolTip="Tác giả" />
+                        <TextBlock Text="Tác giả" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtTacGia}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Column="2" Margin="0,0,10,0">
+                        <TextBox x:Name="txtTheLoai" Height="36" Padding="10,8" VerticalContentAlignment="Center" Text="{Binding NewCategory, UpdateSourceTrigger=PropertyChanged}" ToolTip="Thể loại" />
+                        <TextBlock Text="Thể loại" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtTheLoai}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Column="3" Margin="0,0,10,0">
+                        <TextBox x:Name="txtTimKiem" Height="36" Padding="10,8" VerticalContentAlignment="Center" ToolTip="Tìm theo tên sách / mã ISBN" />
+                        <TextBlock Text="Tìm theo tên sách / mã ISBN" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtTimKiem}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
                     <Button Grid.Column="4" Width="110" Height="36" Content="Thêm sách" Background="#134074" Foreground="White" FontWeight="Bold" BorderThickness="0" Command="{Binding AddBookCommand}" />
                 </Grid>
             </Border>

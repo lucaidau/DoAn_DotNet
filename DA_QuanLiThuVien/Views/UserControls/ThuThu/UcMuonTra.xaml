@@ -21,9 +21,55 @@
                 <ColumnDefinition Width="1.8*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" Height="36" Margin="0,0,10,0" Padding="10,8" ToolTip="Mã phiếu" />
-            <TextBox Grid.Column="1" Height="36" Margin="0,0,10,0" Padding="10,8" ToolTip="Mã độc giả" />
-            <TextBox Grid.Column="2" Height="36" Margin="0,0,10,0" Padding="10,8" ToolTip="Mã sách" />
+
+            <Grid Grid.Column="0" Margin="0,0,10,0">
+                <TextBox x:Name="txtMaPhieuMuon" Height="36" Padding="10,8" VerticalContentAlignment="Center" ToolTip="Mã phiếu" />
+                <TextBlock Text="Mã phiếu" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=txtMaPhieuMuon}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="0,0,10,0">
+                <TextBox x:Name="txtMaDocGia" Height="36" Padding="10,8" VerticalContentAlignment="Center" ToolTip="Mã độc giả" />
+                <TextBlock Text="Mã độc giả" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=txtMaDocGia}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+
+            <Grid Grid.Column="2" Margin="0,0,10,0">
+                <TextBox x:Name="txtMaSach" Height="36" Padding="10,8" VerticalContentAlignment="Center" ToolTip="Mã sách" />
+                <TextBlock Text="Mã sách" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=txtMaSach}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+
             <DatePicker Grid.Column="3" Height="36" Margin="0,0,10,0" />
             <Button Grid.Column="4" Width="130" Height="36" Content="Tạo phiếu mượn" Background="#0B6E4F" Foreground="White" BorderThickness="0" FontWeight="Bold" />
         </Grid>
