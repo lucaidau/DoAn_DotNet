@@ -13,7 +13,7 @@
         FontFamily="Bahnschrift">
 
     <Window.DataContext>
-        <vm:AuthViewModel></vm:AuthViewModel>
+
         
     </Window.DataContext>
     
@@ -44,9 +44,9 @@
 					</Grid>
 				</Border>
 
-				<TabControl Grid.Column="1" Margin="20,10,20,10" Background="Transparent" BorderThickness="0" SelectedIndex="{Binding SelectedTabIndex}">
+				<TabControl Grid.Column="1" Margin="20,10,20,10" Background="Transparent" BorderThickness="0" >
 
-					<TabItem Header="Đăng ký" FontSize="18" FontWeight="Bold" Foreground="#0B2545" DataContext="{Binding RegisterVM}">
+					<TabItem Header="Đăng ký" FontSize="18" FontWeight="Bold" Foreground="#0B2545" >
 						<ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5,15,5,0">
 							<StackPanel Margin="10,0,10,20">
 								<TextBlock Text="Tạo tài khoản mới" FontSize="26" FontWeight="Bold" Foreground="#0B2545" Margin="0,0,0,20" />
