@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using DA_QuanLiThuVien.Helper;
+using DA_QuanLiThuVien.Models;
 using DA_QuanLiThuVien.Models.Auth;
 
 namespace DA_QuanLiThuVien.ViewModels
@@ -66,24 +67,73 @@ namespace DA_QuanLiThuVien.ViewModels
             if(!Validate())
             {
                 return;
-            }   
+            }
 
             NewUser.Role = IsLibrarian;
-            UserSession.UserName = NewUser.UserName;
 
-            ErrMessage = "Đăng ký thành công. ";
-
-            await Task.Delay(1000);
-
-            if(AuthViewModel != null)
+            try
             {
-                AuthViewModel.SelectedTabIndex = 1;
+                using (var db = new QLThuVienEntities())
+                {
+                    var isExist = db.TAI_KHOAN.Any(t => t.TenTK == NewUser.UserName || t.SDT == NewUser.PhoneNumber);
+                    if (isExist)
+                    {
+                        ErrMessage = "Tên đăng nhập hoặc số điện thoại đã tồn tại.";
+                        return;
+                    }
+                    var NewUserAccount = new TAI_KHOAN()
+                    {
+                        TenTK = NewUser.UserName,
+                        HashMK = SercurityHelper.HashPassword(NewUser.Password),
+                        SDT = NewUser.PhoneNumber,
+                        HoTen = NewUser.FullName,
+                        GioiTinh = NewUser.Gender,
+                        Email = NewUser.Email
+                    };
+                    db.TAI_KHOAN.Add(NewUserAccount);
+                    
+                    if(NewUser.Role)
+                    {
+                        var librarian = new THU_THU()
+                        {
+                            IDTaiKhoan = NewUserAccount.IDTaiKhoan
+                        };
+                        db.THU_THU.Add(librarian);
+                    }
+                    else
+                    {
+                        var reader = new DOC_GIA()
+                        {
+                            IDTaiKhoan = NewUserAccount.IDTaiKhoan,
+                            TrangThai = false
+                        };
+                        db.DOC_GIA.Add(reader);
+                    }
+                    await db.SaveChangesAsync();
+                }
+                UserSession.UserName = NewUser.UserName;
+
+                ErrMessage = "Đăng ký thành công. ";
+
+                await Task.Delay(1000);
+
+                if (AuthViewModel != null)
+                {
+                    AuthViewModel.SelectedTabIndex = 1;
+                }
+
+
+                NewUser = new NewUserModel();
+                OnPropertyChanged(nameof(NewUser));
+                ErrMessage = "";
             }
+            catch (Exception ex)
+            {
+                ErrMessage = "Lỗi Kết Nối!!!";
+               
+            }
+
            
-            
-            NewUser = new NewUserModel();
-            OnPropertyChanged(nameof(NewUser));
-            ErrMessage = "";
         }
 
         public bool CanExecuteRegister()
