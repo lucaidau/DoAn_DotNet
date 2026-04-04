@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using DA_QuanLiThuVien.ViewModels;
@@ -33,6 +34,16 @@ namespace DA_QuanLiThuVien.Views
             {
                 registerVM.NewUser.Password = reg_PassBox.Password;
             }
+        }
+
+        private void reg_PassBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+
+        }
+
+        private void NumberOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !Regex.IsMatch(e.Text, "[0-9]");
         }
     }
 }

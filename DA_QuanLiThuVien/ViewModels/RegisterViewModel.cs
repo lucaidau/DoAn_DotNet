@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using DA_QuanLiThuVien.Helper;
@@ -55,40 +56,79 @@ namespace DA_QuanLiThuVien.ViewModels
 
             AuthViewModel = parent;
             RegisterCommand = new RelayCommand(async _ =>await Register(), _ => CanExecuteRegister());
+            SelectedGender = GenderOptions.FirstOrDefault();
         }
 
 
         
         public async Task Register()
         {
-            if (string.IsNullOrEmpty(NewUser.FullName) ||
-               string.IsNullOrEmpty(NewUser.UserName) ||
-               string.IsNullOrEmpty(NewUser.Password) ||
-               string.IsNullOrEmpty(NewUser.Email))
+            if(!Validate())
             {
-                ErrMessage = "Vui lòng điền đầy đủ thông tin.";
                 return;
-            }
+            }   
+
             NewUser.Role = IsLibrarian;
+            UserSession.UserName = NewUser.UserName;
+
             ErrMessage = "Đăng ký thành công. ";
+
             await Task.Delay(1000);
+
+            if(AuthViewModel != null)
+            {
+                AuthViewModel.SelectedTabIndex = 1;
+            }
            
-            AuthViewModel.SelectedTabIndex = 1;
-           
+            
+            NewUser = new NewUserModel();
+            OnPropertyChanged(nameof(NewUser));
+            ErrMessage = "";
         }
 
         public bool CanExecuteRegister()
         {
             if (string.IsNullOrEmpty(NewUser.FullName) ||
-                string.IsNullOrEmpty(NewUser.UserName) ||
-                string.IsNullOrEmpty(NewUser.Password) ||
-                string.IsNullOrEmpty(NewUser.Email))
+               string.IsNullOrEmpty(NewUser.UserName) ||
+               string.IsNullOrEmpty(NewUser.Password) ||
+               string.IsNullOrEmpty(NewUser.Email))
             {
               
                 return false;
             }
+            
             return true;
         }
 
+        private bool Validate()
+        {
+            if(string.IsNullOrEmpty(NewUser.FullName) ||
+               string.IsNullOrEmpty(NewUser.UserName) ||
+               string.IsNullOrEmpty(NewUser.Password) ||
+               string.IsNullOrEmpty(NewUser.Email))
+            {
+                ErrMessage = "Vui lòng điền đầy đủ thông tin.";
+                return false;
+            }
+           
+            if(NewUser.Password.Length <8)
+            {
+                ErrMessage = "Mật khẩu phải có ít nhất 8 ký tự.";
+                return false;
+            }
+            if(!NewUser.Email.Contains("@") || !NewUser.Email.Contains("."))
+            {
+                ErrMessage = "Email không hợp lệ.";
+                return false;
+            }
+            string  partenn = @"^0\d{9}$";
+            if (string.IsNullOrEmpty(NewUser.PhoneNumber) || !Regex.IsMatch(NewUser.PhoneNumber, partenn))
+            {
+                ErrMessage = "Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại 10 chữ số bắt đầu bằng 0.";
+                return false;
+            }
+            
+            return true;
+        }
     }
 }
