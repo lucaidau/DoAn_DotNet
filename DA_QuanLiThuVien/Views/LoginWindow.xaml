@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DA_QuanLiThuVien.Views"
+
         mc:Ignorable="d"
         Title="Hệ thống Quản lý" Height="680" Width="900"
         WindowStartupLocation="CenterScreen"
@@ -11,8 +12,9 @@
         Background="#EAF0F7"
         FontFamily="Bahnschrift">
 
-    
-	<Grid Margin="26">
+ 
+
+        <Grid Margin="26">
 		<Border CornerRadius="16" Background="White" BorderBrush="#D3DCE8" BorderThickness="1">
 			<Grid>
 				<Grid.ColumnDefinitions>
