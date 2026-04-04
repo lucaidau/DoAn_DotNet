@@ -22,11 +22,70 @@
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="1.2*" />
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Margin="0,0,10,0" Height="36" Padding="10,8" ToolTip="Mã phiếu"/>
-                <TextBox Grid.Column="1" Margin="0,0,10,0" Height="36" Padding="10,8" ToolTip="Họ tên" />
-                <TextBox Grid.Column="2" Margin="0,0,10,0" Height="36" Padding="10,8" ToolTip="Số điện thoại" />
-                <TextBox Grid.Column="3" Margin="0,0,10,0" Height="36" Padding="10,8" ToolTip="Email" />
-                <Button Grid.Column="4" Height="36" Content="Thêm độc giả" Background="#134074" Foreground="White" BorderThickness="0" FontWeight="Bold" />
+                <Grid Grid.Column="0" Margin="0,0,10,0">
+                    <TextBox x:Name="txtMaPhieu" Height="36" Padding="10,8" VerticalContentAlignment="Center" ToolTip="Mã phiếu"/>
+                    <TextBlock Text="Mã phiếu" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=txtMaPhieu}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+
+                <Grid Grid.Column="1" Margin="0,0,10,0">
+                    <TextBox x:Name="txtHoTen" Height="36" Padding="10,8" VerticalContentAlignment="Center" ToolTip="Họ tên"/>
+                    <TextBlock Text="Họ tên" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=txtHoTen}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+
+                <Grid Grid.Column="2" Margin="0,0,10,0">
+                    <TextBox x:Name="txtSDT" Height="36" Padding="10,8" VerticalContentAlignment="Center" ToolTip="Số điện thoại"/>
+                    <TextBlock Text="Số điện thoại" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=txtSDT}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+
+                <Grid Grid.Column="3" Margin="0,0,10,0">
+                    <TextBox x:Name="txtEmail" Height="36" Padding="10,8" VerticalContentAlignment="Center" ToolTip="Email"/>
+                    <TextBlock Text="Email" Foreground="#A0AEC0" Margin="12,0,0,0" IsHitTestVisible="False" VerticalAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=txtEmail}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+                <Button Grid.Column="4" Height="36" Content="Thêm độc giả" Click="btnThem_Click" Background="#134074" Foreground="White" BorderThickness="0" FontWeight="Bold" />
             </Grid>
         </Border>
 
@@ -42,9 +101,9 @@
         </DataGrid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-            <Button Content="Sửa" Width="90" Height="34" Margin="0,0,8,0" Background="#1E4D8C" Foreground="White" BorderThickness="0" />
-            <Button Content="Khóa thẻ" Width="100" Height="34" Margin="0,0,8,0" Background="#5E728B" Foreground="White" BorderThickness="0" />
-            <Button Content="Xóa" Width="90" Height="34" Background="#B42318" Foreground="White" BorderThickness="0" />
+            <Button Content="Sửa" Click="btnSua_Click" Width="90" Height="34" Margin="0,0,8,0" Background="#1E4D8C" Foreground="White" BorderThickness="0" />
+            <Button Content="Khóa thẻ" Click="btnKhoaThe_Click" Width="100" Height="34" Margin="0,0,8,0" Background="#5E728B" Foreground="White" BorderThickness="0" />
+            <Button Content="Xóa" Click="btnXoa_Click" Width="90" Height="34" Background="#B42318" Foreground="White" BorderThickness="0" />
         </StackPanel>
     </Grid>
 </UserControl>

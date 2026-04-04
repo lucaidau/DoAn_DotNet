@@ -19,6 +19,10 @@ namespace DA_QuanLiThuVien.Views
         private void PasswordInput_OnPasswordChanged(object sender, RoutedEventArgs e)
         {
             LoginViewModel loginVM = PasswordInput.DataContext as LoginViewModel;
+            if (loginVM != null)
+            {
+                
+            }
         }
 
         private void reg_PassBox_PasswordChanged(object sender, RoutedEventArgs e)
