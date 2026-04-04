@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -88,6 +88,15 @@
     <Compile Include="Views\UserControls\ThuThu\UcQuanLySach.xaml.cs">
       <DependentUpon>UcQuanLySach.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\DocGia\UcTimKiemSach.xaml.cs">
+      <DependentUpon>UcTimKiemSach.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\DocGia\UcThongTinCaNhan.xaml.cs">
+      <DependentUpon>UcThongTinCaNhan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\DocGia\UcSachDangMuon.xaml.cs">
+      <DependentUpon>UcSachDangMuon.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -144,7 +153,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\UserControls\DocGia\UcTimKiemSach.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\DocGia\UcThongTinCaNhan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\DocGia\UcSachDangMuon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\UserControls\DocGia\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

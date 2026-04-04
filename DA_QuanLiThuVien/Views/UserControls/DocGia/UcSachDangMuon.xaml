@@ -1,0 +1,91 @@
+<UserControl x:Class="DA_QuanLiThuVien.Views.UserControls.DocGia.UcSachDangMuon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="760" d:DesignWidth="1220">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Trạng thái mượn trả &amp; Thống kê" FontSize="18" FontWeight="Bold" Foreground="#0B2545" Margin="0,0,0,16" />
+
+        <!-- Phần Thống Kê Dạng Thẻ (Cards) -->
+        <Grid Grid.Row="1" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Card: Sách Đang Mượn -->
+            <Border Grid.Column="0" Background="#134074" CornerRadius="8" Padding="16" Margin="0,0,10,0">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Đang Mượn" Foreground="#B0C4DE" FontSize="14" FontWeight="SemiBold" />
+                    <TextBlock Text="Quá Hạn" Foreground="#B0C4DE" FontSize="14" FontWeight="SemiBold" Margin="195,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="5 cuốn" Foreground="White" FontSize="28" FontWeight="Bold" />
+                        <TextBlock Text="5 cuốn" Foreground="White" FontSize="28" FontWeight="Bold" VerticalAlignment="Bottom" Margin="180,0,0,6"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Card: Tiền Phạt -->
+            <Border Grid.Column="1" Background="#B42318" CornerRadius="8" Padding="16" Margin="0,0,10,0">
+                <StackPanel>
+                    <TextBlock Text="Tổng Tiền Phạt Hiện Tại" Foreground="#FAD3D0" FontSize="14" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="50.000" Foreground="White" FontSize="28" FontWeight="Bold" />
+                        <TextBlock Text="VNĐ" Foreground="White" FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,6"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Card: Tổng Sách Đã Trả -->
+            <Border Grid.Column="2" Background="#0B6E4F" CornerRadius="8" Padding="16">
+                <StackPanel>
+                    <TextBlock Text="Đã Trả Thành Công" Foreground="#A8E6CF" FontSize="14" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="12" Foreground="White" FontSize="28" FontWeight="Bold" />
+                        <TextBlock Text="cuốn" Foreground="White" FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,6"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Bảng Danh Sách -->
+        <TextBlock Grid.Row="2" Text="Danh sách chi tiết mượn sách" Foreground="#0B2545" FontWeight="SemiBold" Margin="0,0,0,8" />
+        <DataGrid Grid.Row="2" Margin="0,28,0,10"
+           AutoGenerateColumns="False"
+           CanUserAddRows="False"
+           IsReadOnly="True"
+           GridLinesVisibility="Horizontal"
+           HeadersVisibility="Column"
+           RowHeaderWidth="0"
+           Background="#FCFDFF"
+           BorderThickness="1" BorderBrush="#D5DFEA">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#E8F0FA" />
+                    <Setter Property="Foreground" Value="#0B2545" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Height" Value="38" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã Phiếu" Width="0.8*" />
+                <DataGridTextColumn Header="Tên Sách" Width="2.5*" />
+                <DataGridTextColumn Header="Ngày Mượn" Width="1.5*" />
+                <DataGridTextColumn Header="Hạn Trả" Width="1.5*" />
+                <DataGridTextColumn Header="Trạng Thái" Width="1.5*" />
+                <DataGridTextColumn Header="Tiền Phạt" Width="1.2*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
