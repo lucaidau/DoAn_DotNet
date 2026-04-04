@@ -71,5 +71,18 @@ namespace DA_QuanLiThuVien.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_DangKi", fullNameParameter, userNameParameter, phoneNumberParameter, emailParameter, genderParameter, hashPassParameter, roleParameter);
         }
+    
+        public virtual ObjectResult<sp_DangNhap_Result> sp_DangNhap(string userName, string hashPass)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var hashPassParameter = hashPass != null ?
+                new ObjectParameter("hashPass", hashPass) :
+                new ObjectParameter("hashPass", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_DangNhap_Result>("sp_DangNhap", userNameParameter, hashPassParameter);
+        }
     }
 }

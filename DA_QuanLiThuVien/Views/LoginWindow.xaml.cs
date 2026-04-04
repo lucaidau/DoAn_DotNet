@@ -2,6 +2,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using DA_QuanLiThuVien.ViewModels;
+using Qltv.Views;
 
 
 
@@ -14,7 +15,26 @@ namespace DA_QuanLiThuVien.Views
         public LoginWindow()
         {
             InitializeComponent();
-            
+
+
+            this.Loaded += (s, e) =>
+            {
+                
+                if (DataContext is AuthViewModel authVM && authVM.LoginVM != null)
+                {
+                    
+                    authVM.LoginVM.OnLoginSuccess += () =>
+                    {
+                        
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            MainWindow mainWindow = new MainWindow();
+                            mainWindow.Show();
+                            this.Close(); 
+                        });
+                    };
+                }
+            };
         }
 
         private void PasswordInput_OnPasswordChanged(object sender, RoutedEventArgs e)

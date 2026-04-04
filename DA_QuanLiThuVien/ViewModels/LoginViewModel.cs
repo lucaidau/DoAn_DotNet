@@ -4,8 +4,10 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using DA_QuanLiThuVien.Helper;
 using DA_QuanLiThuVien.Models;
+using Qltv.Views;
 
 namespace DA_QuanLiThuVien.ViewModels
 {
@@ -32,6 +34,7 @@ namespace DA_QuanLiThuVien.ViewModels
             OnPropertyChanged(nameof(Username));
         }
 
+        public Action OnLoginSuccess;
         private bool CanExecuteLogin()
         {
             return !string.IsNullOrEmpty(Username) && !string.IsNullOrWhiteSpace(Password);
@@ -44,7 +47,31 @@ namespace DA_QuanLiThuVien.ViewModels
                 using (var db = new QLThuVienEntities())
                 {
                     string hashedPass = SercurityHelper.HashPassword(Password);
+                    var res = db.sp_DangNhap
+                        (
+                            Username,
+                            hashedPass
+                        ).FirstOrDefault();
+
+                    if(res != null && res.Result == 1)
+                    {
+                        UserSession.UserID = res.IDTaiKhoan;
+                        UserSession.UserName = res.HoTen;
+                        UserSession.UserRole = res.Role == 1 ? "Thủ Thư" : "Đọc Giả";
+                        ErrMessage = "Đăng Nhập Thành Công!";
+
+                        await Task.Delay(1000);
+
+                        OnLoginSuccess?.Invoke();
+                        MessageBox.Show("Thông tin người dùng: " + UserSession.UserName + " - " + UserSession.UserRole, "Thông Tin Đăng Nhập", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        ErrMessage = "Đăng Nhập Thất Bại: Sai Tên Đăng Nhập Hoặc Mật Khẩu!";
+                    }
                 }
+
+                
             }
             catch (Exception ex)
             {

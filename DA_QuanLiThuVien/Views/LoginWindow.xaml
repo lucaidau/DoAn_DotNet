@@ -118,7 +118,7 @@
 									<PasswordBox x:Name="PasswordInput" Height="38" Padding="12,8" BorderThickness="0" Background="Transparent" PasswordChanged="PasswordInput_OnPasswordChanged" />
 								</Border>
 
-								<TextBlock Text="{Binding ErrorMessage}" Foreground="#B42318" FontWeight="SemiBold" Margin="0,0,0,10" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding ErrMessage}" Foreground="#0B6E4F" FontWeight="SemiBold" Margin="0,0,0,10" TextWrapping="Wrap"/>
 
 								<Button Content="Đăng nhập" Height="44" FontWeight="Bold" Foreground="White" Background="#134074" BorderThickness="0" Cursor="Hand" Command="{Binding LoginCommand}" />
 							</StackPanel>

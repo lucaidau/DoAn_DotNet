@@ -263,6 +263,10 @@
           <Parameter Name="hashPass" Type="char" Mode="In" />
           <Parameter Name="role" Type="bit" Mode="In" />
         </Function>
+        <Function Name="sp_DangNhap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="varchar" Mode="In" />
+          <Parameter Name="hashPass" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="QUAN_LY_THU_VIENModelStoreContainer">
           <EntitySet Name="BAN_SAO_SACH" EntityType="Self.BAN_SAO_SACH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHI_TIET_PHIEU_MUON" EntityType="Self.CHI_TIET_PHIEU_MUON" Schema="dbo" store:Type="Tables" />
@@ -670,7 +674,17 @@
             <Parameter Name="hashPass" Mode="In" Type="String" />
             <Parameter Name="role" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="sp_DangNhap" ReturnType="Collection(QUAN_LY_THU_VIENModel.sp_DangNhap_Result)">
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="hashPass" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="sp_DangNhap_Result">
+          <Property Type="Int32" Name="IDTaiKhoan" Nullable="false" />
+          <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Role" Nullable="false" />
+          <Property Type="Int32" Name="Result" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -794,6 +808,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_DangKi" FunctionName="QUAN_LY_THU_VIENModel.Store.sp_DangKi" />
+          <FunctionImportMapping FunctionImportName="sp_DangNhap" FunctionName="QUAN_LY_THU_VIENModel.Store.sp_DangNhap">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QUAN_LY_THU_VIENModel.sp_DangNhap_Result">
+                <ScalarProperty Name="IDTaiKhoan" ColumnName="IDTaiKhoan" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

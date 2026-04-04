@@ -113,6 +113,9 @@
     <Compile Include="Models\SACH.cs">
       <DependentUpon>QLThuVien.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_DangNhap_Result.cs">
+      <DependentUpon>QLThuVien.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TAC_GIA.cs">
       <DependentUpon>QLThuVien.tt</DependentUpon>
     </Compile>
