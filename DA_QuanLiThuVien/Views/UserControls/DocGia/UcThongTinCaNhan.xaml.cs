@@ -12,8 +12,9 @@ namespace DA_QuanLiThuVien.Views.UserControls.DocGia
 
         private void btnShowDoiMatKhau_Click(object sender, RoutedEventArgs e)
         {
-            pnlThongTin.Visibility = Visibility.Collapsed;
-            pnlDoiMatKhau.Visibility = Visibility.Visible;
+            MessageBox.Show("Chuyển sang màn hình Đổi mật khẩu!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            pnlThongTin.Visibility = Visibility.Collapsed;//hide thông tin cá nhân
+            pnlDoiMatKhau.Visibility = Visibility.Visible;//show đổi mật khẩu
         }
 
         private void btnQuayLai_Click(object sender, RoutedEventArgs e)
