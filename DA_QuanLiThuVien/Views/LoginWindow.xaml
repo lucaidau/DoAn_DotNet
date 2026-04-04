@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DA_QuanLiThuVien.Views"
-
+		xmlns:vm="clr-namespace:DA_QuanLiThuVien.ViewModels"
         mc:Ignorable="d"
         Title="Hệ thống Quản lý" Height="680" Width="900"
         WindowStartupLocation="CenterScreen"
@@ -12,6 +12,9 @@
         Background="#EAF0F7"
         FontFamily="Bahnschrift">
 
+    <Window.DataContext>
+        <vm:AuthViewModel />
+    </Window.DataContext>
 
 	<Grid Margin="26">
 		<Border CornerRadius="16" Background="White" BorderBrush="#D3DCE8" BorderThickness="1">
@@ -40,31 +43,31 @@
 					</Grid>
 				</Border>
 
-				<TabControl Grid.Column="1" Margin="20,10,20,10" Background="Transparent" BorderThickness="0" >
+				<TabControl Grid.Column="1" Margin="20,10,20,10" Background="Transparent" BorderThickness="0" SelectedIndex="{Binding SelectedTabIndex, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
 
-					<TabItem Header="Đăng ký" FontSize="18" FontWeight="Bold" Foreground="#0B2545" >
+					<TabItem Header="Đăng ký" FontSize="18" FontWeight="Bold" Foreground="#0B2545" DataContext="{Binding RegisterVM}" >
 						<ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5,15,5,0">
 							<StackPanel Margin="10,0,10,20">
 								<TextBlock Text="Tạo tài khoản mới" FontSize="26" FontWeight="Bold" Foreground="#0B2545" Margin="0,0,0,20" />
 
                                 <TextBlock Foreground="#2A3B52" FontWeight="SemiBold" ><Run Language="vi-vn" Text="Họ và tên"/></TextBlock>
                                 <Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
-									<TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.HoTen, UpdateSourceTrigger=PropertyChanged}" />
+									<TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.FullName, UpdateSourceTrigger=PropertyChanged}" />
 								</Border>
 
 								<TextBlock Text="Tên tài khoản" Foreground="#2A3B52" FontWeight="SemiBold" />
 								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
-                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.TenTK, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.UserName, UpdateSourceTrigger=PropertyChanged}" />
 								</Border>
 
 								<TextBlock Text="Mật khẩu" Foreground="#2A3B52" FontWeight="SemiBold" />
 								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
-                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.HashMK, UpdateSourceTrigger=PropertyChanged}" />
+                                    <PasswordBox x:Name="reg_PassBox" Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" PasswordChanged="reg_PassBox_PasswordChanged" />
 								</Border>
 
 								<TextBlock Text="Số điện thoại (SĐT)" Foreground="#2A3B52" FontWeight="SemiBold" />
 								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
-                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.SDT, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" />
 								</Border>
 
 								<TextBlock Text="Giới tính" Foreground="#2A3B52" FontWeight="SemiBold" />

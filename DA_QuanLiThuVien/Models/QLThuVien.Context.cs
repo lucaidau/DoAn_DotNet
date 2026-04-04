@@ -12,6 +12,8 @@ namespace DA_QuanLiThuVien.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class QLThuVienEntities : DbContext
     {
@@ -36,5 +38,38 @@ namespace DA_QuanLiThuVien.Models
         public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
         public virtual DbSet<THE_MUON> THE_MUON { get; set; }
         public virtual DbSet<THU_THU> THU_THU { get; set; }
+    
+        public virtual ObjectResult<Nullable<int>> sp_DangKi(string fullName, string userName, string phoneNumber, string email, Nullable<bool> gender, string hashPass, Nullable<bool> role)
+        {
+            var fullNameParameter = fullName != null ?
+                new ObjectParameter("fullName", fullName) :
+                new ObjectParameter("fullName", typeof(string));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var phoneNumberParameter = phoneNumber != null ?
+                new ObjectParameter("phoneNumber", phoneNumber) :
+                new ObjectParameter("phoneNumber", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var genderParameter = gender.HasValue ?
+                new ObjectParameter("gender", gender) :
+                new ObjectParameter("gender", typeof(bool));
+    
+            var hashPassParameter = hashPass != null ?
+                new ObjectParameter("hashPass", hashPass) :
+                new ObjectParameter("hashPass", typeof(string));
+    
+            var roleParameter = role.HasValue ?
+                new ObjectParameter("role", role) :
+                new ObjectParameter("role", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_DangKi", fullNameParameter, userNameParameter, phoneNumberParameter, emailParameter, genderParameter, hashPassParameter, roleParameter);
+        }
     }
 }

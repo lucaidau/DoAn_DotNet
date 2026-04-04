@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QUAN_LY_THU_VIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QUAN_LY_THU_VIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BAN_SAO_SACH">
           <Key>
             <PropertyRef Name="IDBanSao" />
@@ -254,6 +254,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_DangKi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="userName" Type="varchar" Mode="In" />
+          <Parameter Name="phoneNumber" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="char" Mode="In" />
+          <Parameter Name="gender" Type="bit" Mode="In" />
+          <Parameter Name="hashPass" Type="char" Mode="In" />
+          <Parameter Name="role" Type="bit" Mode="In" />
+        </Function>
         <EntityContainer Name="QUAN_LY_THU_VIENModelStoreContainer">
           <EntitySet Name="BAN_SAO_SACH" EntityType="Self.BAN_SAO_SACH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHI_TIET_PHIEU_MUON" EntityType="Self.CHI_TIET_PHIEU_MUON" Schema="dbo" store:Type="Tables" />
@@ -315,8 +324,7 @@
             <End Role="THU_THU" EntitySet="THU_THU" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QUAN_LY_THU_VIENModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -653,6 +661,15 @@
             <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
             <End Role="THU_THU" EntitySet="THU_THU" />
           </AssociationSet>
+          <FunctionImport Name="sp_DangKi" ReturnType="Collection(Int32)">
+            <Parameter Name="fullName" Mode="In" Type="String" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="phoneNumber" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="gender" Mode="In" Type="Boolean" />
+            <Parameter Name="hashPass" Mode="In" Type="String" />
+            <Parameter Name="role" Mode="In" Type="Boolean" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -776,6 +793,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_DangKi" FunctionName="QUAN_LY_THU_VIENModel.Store.sp_DangKi" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

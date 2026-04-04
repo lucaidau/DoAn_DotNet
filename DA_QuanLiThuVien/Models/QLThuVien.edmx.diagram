@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="ff792fce54c449c582b2797bd1fdbc43" Name="Diagram1" ZoomLevel="77">
         <EntityTypeShape EntityType="QUAN_LY_THU_VIENModel.BAN_SAO_SACH" Width="1.5" PointX="14.125" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUAN_LY_THU_VIENModel.CHI_TIET_PHIEU_MUON" Width="1.5" PointX="8.375" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LY_THU_VIENModel.CHI_TIET_PHIEU_MUON" Width="1.5" PointX="8.375" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QUAN_LY_THU_VIENModel.CHI_TIET_TAC_GIA" Width="1.5" PointX="13.125" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QUAN_LY_THU_VIENModel.DOC_GIA" Width="1.5" PointX="5.375" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QUAN_LY_THU_VIENModel.NHA_PHAT_HANH" Width="1.5" PointX="19.125" PointY="6.625" IsExpanded="true" />
