@@ -1,0 +1,131 @@
+﻿<Window x:Class="DA_QuanLiThuVien.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DA_QuanLiThuVien.Views"
+        xmlns:vm="clr-namespace:DA_QuanLiThuVien.ViewModels"
+        mc:Ignorable="d"
+        Title="Hệ thống Quản lý" Height="680" Width="900"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#EAF0F7"
+        FontFamily="Bahnschrift">
+
+    <Window.DataContext>
+        <vm:AuthViewModel></vm:AuthViewModel>
+        
+    </Window.DataContext>
+    
+	<Grid Margin="26">
+		<Border CornerRadius="16" Background="White" BorderBrush="#D3DCE8" BorderThickness="1">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1.2*" />
+					<ColumnDefinition Width="1.5*" />
+				</Grid.ColumnDefinitions>
+
+				<Border Grid.Column="0" CornerRadius="16,0,0,16" Padding="34">
+					<Border.Background>
+						<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+							<GradientStop Color="#0B2545" Offset="0" />
+							<GradientStop Color="#134074" Offset="1" />
+						</LinearGradientBrush>
+					</Border.Background>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<TextBlock Text="QLTV" Foreground="#8ED1FC" FontSize="18" FontWeight="Bold" />
+						<TextBlock Grid.Row="1" Margin="0,18,0,0" Text="Quản Lý Thư Viện" FontSize="34" FontWeight="Bold" Foreground="White" TextWrapping="Wrap" />
+						<TextBlock Grid.Row="2" Margin="0,16,0,0" Text="Hệ thống quản lý mượn trả và thư viện." Foreground="#D8ECFF" FontSize="15" TextWrapping="Wrap" />
+					</Grid>
+				</Border>
+
+				<TabControl Grid.Column="1" Margin="20,10,20,10" Background="Transparent" BorderThickness="0" SelectedIndex="{Binding SelectedTabIndex}">
+
+					<TabItem Header="Đăng ký" FontSize="18" FontWeight="Bold" Foreground="#0B2545" DataContext="{Binding RegisterVM}">
+						<ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5,15,5,0">
+							<StackPanel Margin="10,0,10,20">
+								<TextBlock Text="Tạo tài khoản mới" FontSize="26" FontWeight="Bold" Foreground="#0B2545" Margin="0,0,0,20" />
+
+                                <TextBlock Foreground="#2A3B52" FontWeight="SemiBold" ><Run Language="vi-vn" Text="Họ và tên"/></TextBlock>
+                                <Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
+									<TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.HoTen, UpdateSourceTrigger=PropertyChanged}" />
+								</Border>
+
+								<TextBlock Text="Tên tài khoản" Foreground="#2A3B52" FontWeight="SemiBold" />
+								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
+                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.TenTK, UpdateSourceTrigger=PropertyChanged}" />
+								</Border>
+
+								<TextBlock Text="Mật khẩu" Foreground="#2A3B52" FontWeight="SemiBold" />
+								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
+                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.HashMK, UpdateSourceTrigger=PropertyChanged}" />
+								</Border>
+
+								<TextBlock Text="Số điện thoại (SĐT)" Foreground="#2A3B52" FontWeight="SemiBold" />
+								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
+                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.SDT, UpdateSourceTrigger=PropertyChanged}" />
+								</Border>
+
+								<TextBlock Text="Giới tính" Foreground="#2A3B52" FontWeight="SemiBold" />
+								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
+                                    <ComboBox Height="36" 
+                                              Padding="12,6" 
+                                              BorderThickness="0" 
+                                              Background="Transparent" 
+                                              ItemsSource="{Binding GenderOptions}" 
+                                              SelectedItem="{Binding SelectedGender, UpdateSourceTrigger=PropertyChanged}">
+										
+									</ComboBox>
+								</Border>
+
+								<TextBlock Text="Email" Foreground="#2A3B52" FontWeight="SemiBold" />
+								<Border Margin="0,4,0,10" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
+                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.Email, UpdateSourceTrigger=PropertyChanged}" />
+								</Border>
+
+                                <TextBlock Text="Vai trò" Foreground="#2A3B52" FontWeight="SemiBold" Margin="0,10,0,10"></TextBlock>
+                                <Border>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton Content="Thủ thư" Margin="40,0,100,0" FontWeight="Normal" GroupName="RoleBase" IsChecked="{Binding IsLibrarian}"></RadioButton>
+                                        <RadioButton Content="Đọc giả" FontWeight="Normal" GroupName="RoleBase" IsChecked="{Binding IsReader}"></RadioButton>
+
+                                    </StackPanel>
+                                </Border>
+                                <TextBlock Text="{Binding ErrMessage}" Foreground="#0B6E4F" FontWeight="SemiBold" Margin="0,10,0,10" TextWrapping="Wrap" />
+
+                                <Button Content="ĐĂNG KÝ" Height="44" FontWeight="Bold" Foreground="White" Background="#0B6E4F" BorderThickness="0" Cursor="Hand" Command="{Binding RegisterCommand}" />
+							</StackPanel>
+						</ScrollViewer>
+					</TabItem>
+
+					<TabItem Header="Đăng nhập" FontSize="18" FontWeight="Bold" Foreground="#0B2545" DataContext="{Binding LoginVM}">
+						<Grid Margin="10,20,10,10">
+							<StackPanel>
+								<TextBlock Text="Đăng nhập" FontSize="30" FontWeight="Bold" Foreground="#0B2545" Margin="0,0,0,20" />
+
+								<TextBlock Text="Tài khoản" Foreground="#2A3B52" FontWeight="SemiBold" />
+								<Border Margin="0,6,0,14" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
+									<TextBox Height="38" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+								</Border>
+
+								<TextBlock Text="Mật khẩu" Foreground="#2A3B52" FontWeight="SemiBold" />
+								<Border Margin="0,6,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
+									<PasswordBox x:Name="PasswordInput" Height="38" Padding="12,8" BorderThickness="0" Background="Transparent" PasswordChanged="PasswordInput_OnPasswordChanged" />
+								</Border>
+
+								<TextBlock Text="{Binding ErrorMessage}" Foreground="#B42318" FontWeight="SemiBold" Margin="0,0,0,10" TextWrapping="Wrap"/>
+
+								<Button Content="Đăng nhập" Height="44" FontWeight="Bold" Foreground="White" Background="#134074" BorderThickness="0" Cursor="Hand" Command="{Binding LoginCommand}" />
+							</StackPanel>
+						</Grid>
+					</TabItem>
+				</TabControl>
+			</Grid>
+		</Border>
+	</Grid>
+</Window>
