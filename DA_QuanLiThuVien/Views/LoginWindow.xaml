@@ -12,8 +12,9 @@
         Background="#EAF0F7"
         FontFamily="Bahnschrift">
 
+ 
 
-	<Grid Margin="26">
+        <Grid Margin="26">
 		<Border CornerRadius="16" Background="White" BorderBrush="#D3DCE8" BorderThickness="1">
 			<Grid>
 				<Grid.ColumnDefinitions>
@@ -62,7 +63,7 @@
                                     <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.HashMK, UpdateSourceTrigger=PropertyChanged}" />
 								</Border>
 
-								<TextBlock Text="Số điện thoại (SĐT)" Foreground="#2A3B52" FontWeight="SemiBold" />
+								<TextBlock Text="Số điện thoại" Foreground="#2A3B52" FontWeight="SemiBold" />
 								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
                                     <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.SDT, UpdateSourceTrigger=PropertyChanged}" />
 								</Border>
