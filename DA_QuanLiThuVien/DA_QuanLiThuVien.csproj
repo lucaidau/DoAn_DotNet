@@ -134,6 +134,15 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\DocGia\UcSachDangMuon.xaml.cs">
+      <DependentUpon>UcSachDangMuon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\DocGia\UcThongTinCaNhan.xaml.cs">
+      <DependentUpon>UcThongTinCaNhan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\DocGia\UcTimKiemSach.xaml.cs">
+      <DependentUpon>UcTimKiemSach.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\ThuThu\UcDocGia.xaml.cs">
       <DependentUpon>UcDocGia.xaml</DependentUpon>
     </Compile>
@@ -190,6 +199,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\DocGia\UcSachDangMuon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\DocGia\UcThongTinCaNhan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\DocGia\UcTimKiemSach.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
