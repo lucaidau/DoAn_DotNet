@@ -1,6 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
-using DA_QuanLiThuVien.ViewModels;
+
 
 
 namespace DA_QuanLiThuVien.Views
@@ -17,8 +17,8 @@ namespace DA_QuanLiThuVien.Views
 
         private void PasswordInput_OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-           
-           
+            
+            
         }
 
         
