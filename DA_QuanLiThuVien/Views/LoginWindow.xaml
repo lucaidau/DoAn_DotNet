@@ -63,12 +63,12 @@
 
 								<TextBlock Text="Mật khẩu" Foreground="#2A3B52" FontWeight="SemiBold" />
 								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
-                                    <PasswordBox x:Name="reg_PassBox" Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" PasswordChanged="reg_PassBox_PasswordChanged" />
+                                    <PasswordBox x:Name="reg_PassBox" Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" PasswordChanged="reg_PassBox_PasswordChanged"  />
 								</Border>
 
 								<TextBlock Text="Số điện thoại" Foreground="#2A3B52" FontWeight="SemiBold" />
 								<Border Margin="0,4,0,12" BorderBrush="#C8D3E0" BorderThickness="1" CornerRadius="8" Background="#F8FBFF">
-                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBox Height="36" Padding="12,8" BorderThickness="0" Background="Transparent" Text="{Binding NewUser.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumberOnly"/>
 								</Border>
 
 								<TextBlock Text="Giới tính" Foreground="#2A3B52" FontWeight="SemiBold" />
