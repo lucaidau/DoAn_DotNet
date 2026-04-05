@@ -1,33 +1,20 @@
 using System.Windows;
 using DA_QuanLiThuVien.Views.UserControls.ThuThu;
 using DA_QuanLiThuVien.Views.UserControls.DocGia;
+using DA_QuanLiThuVien.ViewModels.Main;
 
-namespace Qltv.Views
+namespace DA_QuanLiThuVien.Views
 {
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            // Mặc định là Thủ thư, có thể thay đổi bằng SetRole(false) từ Login
-            SetRole(true);
+
+            this.DataContext = new MainWindowViewModel();
         }
 
-        public void SetRole(bool isLibrarian)
-        {
-            if (isLibrarian)
-            {
-                TxtRole.Text = "Thủ thư";
-                MenuThuThu.Visibility = Visibility.Visible;
-                MenuDocGia.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                TxtRole.Text = "Độc giả";
-                MenuThuThu.Visibility = Visibility.Collapsed;
-                MenuDocGia.Visibility = Visibility.Visible;
-            }
-        }
+        
 
         private void ResetButtonBackground()
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using DA_QuanLiThuVien.Helper;
 using DA_QuanLiThuVien.Models;
-using Qltv.Views;
+using DA_QuanLiThuVien.Views;
 
 namespace DA_QuanLiThuVien.ViewModels
 {
@@ -17,7 +17,7 @@ namespace DA_QuanLiThuVien.ViewModels
         private string _password;
         private string _errMessage;
 
-        public string Username { get => UserSession.UserName; set { UserSession.UserName = value; OnPropertyChanged(); } }
+        public string Username { get => UserSession.UserFullName; set { UserSession.UserFullName = value; OnPropertyChanged(); } }
         public string Password { get => _password; set => _password = value; }
         public string ErrMessage { get => _errMessage; set { _errMessage = value; OnPropertyChanged(); } }
 
@@ -56,14 +56,14 @@ namespace DA_QuanLiThuVien.ViewModels
                     if(res != null && res.Result == 1)
                     {
                         UserSession.UserID = res.IDTaiKhoan;
-                        UserSession.UserName = res.HoTen;
+                        UserSession.UserFullName = res.HoTen;
                         UserSession.UserRole = res.Role == 1 ? "Thủ Thư" : "Đọc Giả";
                         ErrMessage = "Đăng Nhập Thành Công!";
 
                         await Task.Delay(1000);
 
                         OnLoginSuccess?.Invoke();
-                        MessageBox.Show("Thông tin người dùng: " + UserSession.UserName + " - " + UserSession.UserRole, "Thông Tin Đăng Nhập", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Thông tin người dùng: " + UserSession.UserFullName + " - " + UserSession.UserRole, "Thông Tin Đăng Nhập", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {

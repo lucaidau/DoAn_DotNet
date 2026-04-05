@@ -90,7 +90,7 @@ namespace DA_QuanLiThuVien.ViewModels
                     else if (res == 0) ErrMessage = "Tên tài khoản đã tồn tại. Vui lòng chọn tên khác.";
                     else ErrMessage = "Đăng kí thất bại. Vui lòng thử lại.";
                 }
-                UserSession.UserName = NewUser.UserName;
+                UserSession.UserFullName = NewUser.UserName;
 
                 
 
