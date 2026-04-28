@@ -14,9 +14,20 @@ namespace DA_QuanLiThuVien.Models
     
     public partial class THU_THU
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public THU_THU()
+        {
+            this.BAN_SAO_SACH = new HashSet<BAN_SAO_SACH>();
+            this.SACHes = new HashSet<SACH>();
+        }
+    
         public int IDThuThu { get; set; }
         public Nullable<int> IDTaiKhoan { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BAN_SAO_SACH> BAN_SAO_SACH { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SACH> SACHes { get; set; }
         public virtual TAI_KHOAN TAI_KHOAN { get; set; }
     }
 }

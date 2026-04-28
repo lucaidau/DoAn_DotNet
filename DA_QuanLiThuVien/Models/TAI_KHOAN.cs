@@ -17,9 +17,7 @@ namespace DA_QuanLiThuVien.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TAI_KHOAN()
         {
-            this.BAN_SAO_SACH = new HashSet<BAN_SAO_SACH>();
             this.DOC_GIA = new HashSet<DOC_GIA>();
-            this.SACHes = new HashSet<SACH>();
             this.THU_THU = new HashSet<THU_THU>();
         }
     
@@ -32,11 +30,7 @@ namespace DA_QuanLiThuVien.Models
         public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BAN_SAO_SACH> BAN_SAO_SACH { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DOC_GIA> DOC_GIA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SACH> SACHes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THU_THU> THU_THU { get; set; }
     }

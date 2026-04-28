@@ -73,7 +73,7 @@ namespace DA_QuanLiThuVien.ViewModels
 
             try
             {
-                using (var db = new QLThuVienEntities())
+                using (var db = new QUAN_LY_THU_VIENEntities())
                 {
                     var res = db.sp_DangKi
                         (

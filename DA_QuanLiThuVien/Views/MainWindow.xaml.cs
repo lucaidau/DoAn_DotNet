@@ -112,6 +112,9 @@ namespace DA_QuanLiThuVien.Views
             MessageBox.Show("Thực hiện Đăng xuất!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             // Có thể thêm logic trở về LoginWindow ở đây
             SetActiveButton((System.Windows.Controls.Button)sender);
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
         }
     }
 }

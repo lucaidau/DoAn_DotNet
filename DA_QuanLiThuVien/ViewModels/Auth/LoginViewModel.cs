@@ -44,7 +44,7 @@ namespace DA_QuanLiThuVien.ViewModels
         {
             try
             {
-                using (var db = new QLThuVienEntities())
+                using (var db = new QUAN_LY_THU_VIENEntities())
                 {
                     string hashedPass = SercurityHelper.HashPassword(Password);
                     var res = db.sp_DangNhap

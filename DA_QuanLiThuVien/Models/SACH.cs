@@ -31,6 +31,6 @@ namespace DA_QuanLiThuVien.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHI_TIET_TAC_GIA> CHI_TIET_TAC_GIA { get; set; }
         public virtual NHA_PHAT_HANH NHA_PHAT_HANH { get; set; }
-        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
+        public virtual THU_THU THU_THU { get; set; }
     }
 }

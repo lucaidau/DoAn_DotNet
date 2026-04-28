@@ -27,8 +27,8 @@ namespace DA_QuanLiThuVien.Models
         public Nullable<decimal> GiaNhap { get; set; }
         public Nullable<byte> TrangThai { get; set; }
     
+        public virtual THU_THU THU_THU { get; set; }
         public virtual SACH SACH { get; set; }
-        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHI_TIET_PHIEU_MUON> CHI_TIET_PHIEU_MUON { get; set; }
     }

@@ -78,55 +78,58 @@
     <Compile Include="Helper\UserSession.cs" />
     <Compile Include="Models\Auth\NewUserModel.cs" />
     <Compile Include="Models\BAN_SAO_SACH.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHI_TIET_PHIEU_MUON.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHI_TIET_TAC_GIA.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DOC_GIA.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NHA_PHAT_HANH.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PHIEU_MUON.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLThuVien.Context.cs">
+    <Compile Include="Models\QLTV_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLThuVien.Context.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLThuVien.cs">
+    <Compile Include="Models\QLTV_Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLThuVien.Designer.cs">
+    <Compile Include="Models\QLTV_Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLThuVien.edmx</DependentUpon>
+      <DependentUpon>QLTV_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SACH.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_DangNhap_Result.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TAC_GIA.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TAI_KHOAN.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THE_MUON.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THU_THU.cs">
-      <DependentUpon>QLThuVien.tt</DependentUpon>
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Auth\AuthViewModel.cs" />
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
@@ -183,12 +186,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\QLThuVien.edmx">
+    <EntityDeploy Include="Models\QLTV_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLThuVien.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLTV_Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\QLThuVien.edmx.diagram">
-      <DependentUpon>QLThuVien.edmx</DependentUpon>
+    <None Include="Models\QLTV_Model.edmx.diagram">
+      <DependentUpon>QLTV_Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -241,17 +244,16 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\QLThuVien.Context.tt">
+    <Content Include="Models\QLTV_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLThuVien.edmx</DependentUpon>
-      <LastGenOutput>QLThuVien.Context.cs</LastGenOutput>
+      <DependentUpon>QLTV_Model.edmx</DependentUpon>
+      <LastGenOutput>QLTV_Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\QLThuVien.tt">
+    <Content Include="Models\QLTV_Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLThuVien.edmx</DependentUpon>
-      <LastGenOutput>QLThuVien.cs</LastGenOutput>
+      <DependentUpon>QLTV_Model.edmx</DependentUpon>
+      <LastGenOutput>QLTV_Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
