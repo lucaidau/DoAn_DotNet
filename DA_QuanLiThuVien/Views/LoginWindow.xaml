@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#EAF0F7"
-        FontFamily="Bahnschrift">
+        FontFamily="Bahnschrift" Closing="Window_Closing">
 
     <Window.DataContext>
         <vm:AuthViewModel />

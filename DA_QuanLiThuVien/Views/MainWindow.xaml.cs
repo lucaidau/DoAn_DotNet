@@ -109,12 +109,31 @@ namespace DA_QuanLiThuVien.Views
 
         private void BtnDangXuat_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Thực hiện Đăng xuất!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            // Có thể thêm logic trở về LoginWindow ở đây
-            SetActiveButton((System.Windows.Controls.Button)sender);
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Bạn có muốn đăng xuất?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            //SetActiveButton((System.Windows.Controls.Button)sender);
+            if (result == MessageBoxResult.Yes)
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                this.Close();
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Bạn có chắc muốn thoát?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+
+            }
+            else
+            {
+                
+                e.Cancel = true;
+            }
         }
     }
 }

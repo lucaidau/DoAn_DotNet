@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DA_QuanLiThuVien.Views"
         xmlns:vm="clr-namespace:DA_QuanLiThuVien.ViewModels.Main"
-        xmlns:uc="clr-namespace:DA_QuanLiThuVien.Views.UserControls.ThuThu"
+        xmlns:uc="clr-namespace:DA_QuanLiThuVien.Views.UserControls.DocGia"
         mc:Ignorable="d"
         Title="Quản lý thư viện" Height="760" Width="1220"
         WindowStartupLocation="CenterScreen"
         Background="#EDF2F8"
         FontFamily="Bahnschrift"
-        d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
+        d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}" Closing="Window_Closing"
         >
 
 

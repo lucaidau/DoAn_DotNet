@@ -1,4 +1,4 @@
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using DA_QuanLiThuVien.ViewModels;
@@ -30,7 +30,9 @@ namespace DA_QuanLiThuVien.Views
                         {
                             MainWindow mainWindow = new MainWindow();
                             mainWindow.Show();
-                            this.Close(); 
+                            this.Closing -= Window_Closing;
+
+                            this.Close();
                         });
                     };
                 }
@@ -59,6 +61,19 @@ namespace DA_QuanLiThuVien.Views
         private void NumberOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             e.Handled = !Regex.IsMatch(e.Text, "[0-9]");
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Bạn có chắc muốn thoát?","Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }
