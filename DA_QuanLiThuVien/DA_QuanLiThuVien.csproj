@@ -134,9 +134,9 @@
     <Compile Include="ViewModels\Auth\AuthViewModel.cs" />
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
     <Compile Include="ViewModels\Auth\RegisterViewModel.cs" />
-    <Compile Include="ViewModels\Main\LibrarianViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\LibrarianViewModel.cs" />
     <Compile Include="ViewModels\Main\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\Main\ReaderViewModel.cs" />
+    <Compile Include="ViewModels\Main\Reader\ReaderViewModel.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -259,10 +259,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Main\Librarian\" />
-    <Folder Include="ViewModels\Main\Reader\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

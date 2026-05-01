@@ -114,6 +114,7 @@ namespace DA_QuanLiThuVien.Views
             //SetActiveButton((System.Windows.Controls.Button)sender);
             if (result == MessageBoxResult.Yes)
             {
+                this.Closing -= Window_Closing;
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.Show();
                 this.Close();
@@ -122,18 +123,10 @@ namespace DA_QuanLiThuVien.Views
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Bạn có chắc muốn thoát?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
-            {
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.Show();
 
-            }
-            else
-            {
-                
-                e.Cancel = true;
-            }
+            this.Closing -= Window_Closing;
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
         }
     }
 }

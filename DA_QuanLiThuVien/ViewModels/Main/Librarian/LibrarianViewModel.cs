@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DA_QuanLiThuVien.Helper;
 
-namespace DA_QuanLiThuVien.ViewModels.Main
+namespace DA_QuanLiThuVien.ViewModels.Main.Librarian
 {
     public class LibrarianViewModel:BaseViewModel
     {
