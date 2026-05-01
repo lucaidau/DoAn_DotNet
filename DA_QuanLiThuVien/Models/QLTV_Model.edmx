@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
@@ -268,9 +268,9 @@
           <Parameter Name="fullName" Type="nvarchar" Mode="In" />
           <Parameter Name="userName" Type="varchar" Mode="In" />
           <Parameter Name="phoneNumber" Type="varchar" Mode="In" />
-          <Parameter Name="email" Type="char" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="gender" Type="bit" Mode="In" />
-          <Parameter Name="hashPass" Type="char" Mode="In" />
+          <Parameter Name="hashPass" Type="varchar" Mode="In" />
           <Parameter Name="role" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_DangNhap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
