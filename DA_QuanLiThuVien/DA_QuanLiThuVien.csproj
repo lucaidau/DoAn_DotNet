@@ -155,6 +155,9 @@
     <Compile Include="Views\UserControls\ThuThu\UcDocGia.xaml.cs">
       <DependentUpon>UcDocGia.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\ThuThu\UcQuanLyTKDocGia.xaml.cs">
+      <DependentUpon>UcQuanLyTKDocGia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\ThuThu\UcBaoCao.xaml.cs">
       <DependentUpon>UcBaoCao.xaml</DependentUpon>
     </Compile>
@@ -224,6 +227,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\UserControls\ThuThu\UcDocGia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\ThuThu\UcQuanLyTKDocGia.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

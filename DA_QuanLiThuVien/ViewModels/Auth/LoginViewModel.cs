@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -42,6 +42,32 @@ namespace DA_QuanLiThuVien.ViewModels
 
         private async Task Login()
         {
+            // ── TÀI KHOẢN DEMO TĨNH (không cần DB) ──────────────────────────
+            // Thủ Thư : admin / admin
+            // Đọc Giả : reader / reader
+            if (Username == "admin123" && Password == "admin")
+            {
+                UserSession.UserID       = 0;
+                UserSession.UserFullName = "Quản Trị Demo";
+                UserSession.UserRole     = "Thủ Thư";
+                ErrMessage = "Đăng Nhập Thành Công!";
+                await Task.Delay(500);
+                OnLoginSuccess?.Invoke();
+                return;
+            }
+
+            if (Username == "reader" && Password == "reader")
+            {
+                UserSession.UserID       = 0;
+                UserSession.UserFullName = "Đọc Giả Demo";
+                UserSession.UserRole     = "Đọc Giả";
+                ErrMessage = "Đăng Nhập Thành Công!";
+                await Task.Delay(500);
+                OnLoginSuccess?.Invoke();
+                return;
+            }
+            // ─────────────────────────────────────────────────────────────────
+
             try
             {
                 using (var db = new QUAN_LY_THU_VIENEntities())
@@ -70,8 +96,6 @@ namespace DA_QuanLiThuVien.ViewModels
                         ErrMessage = "Đăng Nhập Thất Bại: Sai Tên Đăng Nhập Hoặc Mật Khẩu!";
                     }
                 }
-
-                
             }
             catch (Exception ex)
             {
