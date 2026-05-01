@@ -1,0 +1,71 @@
+<UserControl x:Class="DA_QuanLiThuVien.Views.UserControls.ThuThu.UcMenuThuThu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu bên trái -->
+        <Border Grid.Column="0" Background="White" BorderBrush="#D8E0EB" BorderThickness="1"
+                CornerRadius="10" Padding="12" Margin="0,0,16,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                <GroupBox Header="MENU CHỨC NĂNG" Foreground="#324967" FontWeight="Bold"
+                          FontSize="14" BorderThickness="0" Margin="0" Style="{x:Null}">
+                    <StackPanel Margin="0,15,0,0">
+
+                        <Button x:Name="BtnQuanLySach" Content="Quản lý sách"
+                                Height="40" Margin="0,0,0,8"
+                                Background="Transparent" Foreground="#0B2545" FontWeight="Bold"
+                                Click="BtnQuanLySach_Click" BorderThickness="0"
+                                HorizontalContentAlignment="Left" Padding="15,0" Cursor="Hand"/>
+
+                        <Button x:Name="BtnDocGia" Content="Độc giả"
+                                Height="40" Margin="0,0,0,8"
+                                Background="Transparent" Foreground="#0B2545" FontWeight="Bold"
+                                Click="BtnDocGia_Click" BorderThickness="0"
+                                HorizontalContentAlignment="Left" Padding="15,0" Cursor="Hand"/>
+
+                        <Button x:Name="BtnMuonTra" Content="Mượn / Trả sách"
+                                Height="40" Margin="0,0,0,8"
+                                Background="Transparent" Foreground="#0B2545" FontWeight="Bold"
+                                Click="BtnMuonTra_Click" BorderThickness="0"
+                                HorizontalContentAlignment="Left" Padding="15,0" Cursor="Hand"/>
+
+                        <Button x:Name="BtnBaoCao" Content="Báo cáo"
+                                Height="40" Margin="0,0,0,8"
+                                Background="Transparent" Foreground="#0B2545" FontWeight="Bold"
+                                Click="BtnBaoCao_Click" BorderThickness="0"
+                                HorizontalContentAlignment="Left" Padding="15,0" Cursor="Hand"/>
+
+                        <Button x:Name="BtnCaiDat" Content="Cài đặt hệ thống"
+                                Height="40" Margin="0,0,0,8"
+                                Background="Transparent" Foreground="#0B2545" FontWeight="Bold"
+                                Click="BtnCaiDat_Click" BorderThickness="0"
+                                HorizontalContentAlignment="Left" Padding="15,0" Cursor="Hand"/>
+
+                        <Button x:Name="BtnDangXuat" Content="Đăng xuất"
+                                Height="40" Margin="0,20,0,8"
+                                Background="#FFEAEA" Foreground="#B42318" FontWeight="Bold"
+                                Click="BtnDangXuat_Click" BorderThickness="0"
+                                HorizontalContentAlignment="Left" Padding="15,0" Cursor="Hand"/>
+
+                    </StackPanel>
+                </GroupBox>
+            </ScrollViewer>
+        </Border>
+
+        <!-- Vùng nội dung bên phải -->
+        <Border Grid.Column="1" Background="White" BorderBrush="#D8E0EB" BorderThickness="1"
+                CornerRadius="10" Padding="12">
+            <ContentControl x:Name="SubContent"/>
+        </Border>
+
+    </Grid>
+</UserControl>
