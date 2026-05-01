@@ -7,7 +7,6 @@
         xmlns:vm="clr-namespace:DA_QuanLiThuVien.ViewModels.Main"
         xmlns:vmReader="clr-namespace:DA_QuanLiThuVien.ViewModels.Main.Reader"
         xmlns:vmLibrarian="clr-namespace:DA_QuanLiThuVien.ViewModels.Main.Librarian"
-        xmlns:uc="clr-namespace:DA_QuanLiThuVien.Views.UserControls.DocGia"
         mc:Ignorable="d"
         Title="Quản lý thư viện" Height="760" Width="1220"
         WindowStartupLocation="CenterScreen"
@@ -16,23 +15,13 @@
         d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}" Closing="Window_Closing"
         >
 
-    <!--<Window.Resources>
-        <DataTemplate DataType="{x:Type vmLibrarian:LibrarianViewModel}">
-            <views:></views:>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type vmReader:ReaderViewModel}">
-            <views:></views:>
-        </DataTemplate>
-    </Window.Resources>-->
-    
     <Grid Margin="24">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <!-- Header -->
         <Border Grid.Row="0" CornerRadius="14" Padding="22" Margin="0,0,0,16" BorderBrush="#D5DFEA" BorderThickness="1">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -61,78 +50,9 @@
             </Grid>
         </Border>
 
-        <Grid Grid.Row="1" Margin="0,0,0,16">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Background="White" CornerRadius="10" BorderBrush="#D4DEE9" BorderThickness="1" Margin="0,0,10,0" Padding="14">
-                <StackPanel>
-                    <TextBlock Text="Tổng số sách" Foreground="#5A6D86" FontSize="13" />
-                    <TextBlock Text="{Binding TotalBooks}" FontSize="30" FontWeight="Bold" Foreground="#0B2545" Margin="0,2,0,0" />
-                </StackPanel>
-            </Border>
+        <!-- Menu theo vai trò được load từ code-behind -->
+        <ContentControl x:Name="MainContent" Grid.Row="1"/>
 
-            <Border Grid.Column="1" Background="White" CornerRadius="10" BorderBrush="#D4DEE9" BorderThickness="1" Margin="0,0,10,0" Padding="14">
-                <StackPanel>
-                    <TextBlock Text="Còn sách" Foreground="#5A6D86" FontSize="13" />
-                    <TextBlock Text="{Binding AvailableBooks}" FontSize="30" FontWeight="Bold" Foreground="#0B6E4F" Margin="0,2,0,0" />
-                </StackPanel>
-            </Border>
-
-            <Border Grid.Column="2" Background="White" CornerRadius="10" BorderBrush="#D4DEE9" BorderThickness="1" Padding="14">
-                <StackPanel>
-                    <TextBlock Text="Đang mượn" Foreground="#5A6D86" FontSize="13" />
-                    <TextBlock Text="{Binding BorrowedBooks}" FontSize="30" FontWeight="Bold" Foreground="#AE2012" Margin="0,2,0,0" />
-                </StackPanel>
-            </Border>
-        </Grid>
-
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="220" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Border Grid.Column="0" Background="White" BorderBrush="#D8E0EB" BorderThickness="1" CornerRadius="10" Padding="12" Margin="0,0,16,0">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
-                    <GroupBox Header="MENU CHỨC NĂNG" Foreground="#324967" FontWeight="Bold" FontSize="14" BorderThickness="0" Margin="0" Style="{x:Null}">
-                        <StackPanel Margin="0,15,0,0">
-                            
-                            <StackPanel x:Name="MenuThuThu" Visibility="{Binding LibrarianVisibility}">
-                                <Button x:Name="BtnQuanLySach" Content="Quản lý sách" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnQuanLySach_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
-                                
-                                <Button x:Name="BtnDocGia" Content="Độc giả" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnDocGia_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
-                                
-                                <Button x:Name="BtnMuonTra" Content="Mượn / Trả sách" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnMuonTra_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
-                                
-                                <Button x:Name="BtnBaoCao" Content="Báo cáo" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnBaoCao_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
-
-                                <Button x:Name="BtnCaiDat" Content="Cài đặt hệ thống" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnCaiDat_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
-                            </StackPanel>
-
-                            
-                            <StackPanel x:Name="MenuDocGia" Visibility="{Binding ReaderVisibility}">
-                                <Button x:Name="BtnTimKiemSach" Content="Tìm kiếm sách" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnTimKiemSach_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
-                                
-                                <Button x:Name="BtnSachDangMuon" Content="Sách đang mượn" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnSachDangMuon_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
-                                
-                                <Button x:Name="BtnThongTinCaNhan" Content="Thông tin cá nhân" Height="40" Margin="0,0,0,8" Background="Transparent" Foreground="#0B2545" FontWeight="Bold" Click="BtnThongTinCaNhan_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" />
-                            </StackPanel>
-
-                            <Button x:Name="BtnDangXuat" Content="Đăng xuất" Height="40" Margin="0,20,0,8" Background="#FFEAEA" Foreground="#B42318" FontWeight="Bold" Click="BtnDangXuat_Click" BorderThickness="0" HorizontalContentAlignment="Left" Padding="15,0" Cursor="Hand" />
-                        </StackPanel>
-                    </GroupBox>
-                </ScrollViewer>
-            </Border>
-
-            
-            <Border Grid.Column="1" Background="White" BorderBrush="#D8E0EB" BorderThickness="1" CornerRadius="10" Padding="12">
-                <ContentControl x:Name="MainContent" Content="{Binding}"/>
-            </Border>
-        </Grid>
     </Grid>
 </Window>
-
