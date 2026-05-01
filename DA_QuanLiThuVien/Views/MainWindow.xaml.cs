@@ -12,9 +12,24 @@ namespace DA_QuanLiThuVien.Views
             InitializeComponent();
 
             this.DataContext = new MainWindowViewModel();
+            this.Loaded += Window_Loaded;
         }
 
-        
+        // Tự động mở màn hình đầu tiên theo role khi window load xong
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var vm = this.DataContext as MainWindowViewModel;
+            if (vm?.Role == "Thủ Thư")
+            {
+                SetActiveButton(BtnQuanLySach);
+                MainContent.Content = new UcQuanLySach();
+            }
+            else
+            {
+                SetActiveButton(BtnTimKiemSach);
+                MainContent.Content = new UcTimKiemSach();
+            }
+        }
 
         private void ResetButtonBackground()
         {
@@ -23,12 +38,14 @@ namespace DA_QuanLiThuVien.Views
             
             BtnQuanLySach.Background = defaultBg;
             BtnDocGia.Background = defaultBg;
+            BtnQuanLyTKDocGia.Background = defaultBg;
             BtnMuonTra.Background = defaultBg;
             BtnBaoCao.Background = defaultBg;
             BtnCaiDat.Background = defaultBg;
 
             BtnQuanLySach.Foreground = defaultFg;
             BtnDocGia.Foreground = defaultFg;
+            BtnQuanLyTKDocGia.Foreground = defaultFg;
             BtnMuonTra.Foreground = defaultFg;
             BtnBaoCao.Foreground = defaultFg;
             BtnCaiDat.Foreground = defaultFg;
@@ -53,56 +70,54 @@ namespace DA_QuanLiThuVien.Views
 
         private void BtnQuanLySach_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Mở chức năng Quản lý sách!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             SetActiveButton((System.Windows.Controls.Button)sender);
             MainContent.Content = new UcQuanLySach();
         }
 
         private void BtnDocGia_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Mở chức năng Quản lý độc giả!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             SetActiveButton((System.Windows.Controls.Button)sender);
             MainContent.Content = new UcDocGia();
         }
 
+        private void BtnQuanLyTKDocGia_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveButton((System.Windows.Controls.Button)sender);
+            MainContent.Content = new UcQuanLyTKDocGia();
+        }
+
         private void BtnMuonTra_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Mở chức năng Mượn / Trả sách!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             SetActiveButton((System.Windows.Controls.Button)sender);
             MainContent.Content = new UcMuonTra();
         }
 
         private void BtnBaoCao_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Mở chức năng Báo cáo thống kê!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             SetActiveButton((System.Windows.Controls.Button)sender);
             MainContent.Content = new UcBaoCao();
         }
 
         private void BtnCaiDat_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Mở chức năng Cài đặt hệ thống!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             SetActiveButton((System.Windows.Controls.Button)sender);
             MainContent.Content = new UcCaiDat();
         }
 
         private void BtnTimKiemSach_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Mở chức năng Tìm kiếm sách!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             SetActiveButton((System.Windows.Controls.Button)sender);
             MainContent.Content = new UcTimKiemSach();
         }
 
         private void BtnSachDangMuon_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Mở chức năng Sách đang mượn!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             SetActiveButton((System.Windows.Controls.Button)sender);
             MainContent.Content = new UcSachDangMuon();
         }
 
         private void BtnThongTinCaNhan_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Mở chức năng Thông tin cá nhân!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             SetActiveButton((System.Windows.Controls.Button)sender);
             MainContent.Content = new UcThongTinCaNhan();
         }
@@ -111,7 +126,6 @@ namespace DA_QuanLiThuVien.Views
         {
             MessageBoxResult result = MessageBox.Show("Bạn có muốn đăng xuất?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            //SetActiveButton((System.Windows.Controls.Button)sender);
             if (result == MessageBoxResult.Yes)
             {
                 this.Closing -= Window_Closing;
@@ -123,7 +137,6 @@ namespace DA_QuanLiThuVien.Views
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
             this.Closing -= Window_Closing;
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
