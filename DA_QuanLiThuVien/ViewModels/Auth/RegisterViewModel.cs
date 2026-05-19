@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,10 +73,10 @@ namespace DA_QuanLiThuVien.ViewModels
 
             try
             {
+                int? res;
                 using (var db = new QUAN_LY_THU_VIENEntities())
                 {
-                    var res = db.sp_DangKi
-                        (
+                    res = db.sp_DangKi(
                         NewUser.FullName,
                         NewUser.UserName,
                         NewUser.PhoneNumber,
@@ -84,35 +84,39 @@ namespace DA_QuanLiThuVien.ViewModels
                         NewUser.Gender,
                         SercurityHelper.HashPassword(NewUser.Password),
                         NewUser.Role
-                        ).FirstOrDefault();
-
-                    if (res == 1) ErrMessage = "Đăng kí thành công";
-                    else if (res == 0) ErrMessage = "Tên tài khoản đã tồn tại. Vui lòng chọn tên khác.";
-                    else ErrMessage = "Đăng kí thất bại. Vui lòng thử lại.";
+                    ).FirstOrDefault();
                 }
-                UserSession.UserFullName = NewUser.UserName;
 
-                
-
-                await Task.Delay(1000);
-
-                if (AuthViewModel != null)
+                if (res == 1)
                 {
-                    AuthViewModel.SelectedTabIndex = 1;
+                    ErrMessage = "Đăng kí thành công! Vui lòng đăng nhập.";
+                    await Task.Delay(1000);
+
+                    // Lưu lại username trước khi reset form
+                    string registeredUsername = NewUser.UserName;
+
+                    // Reset form
+                    NewUser = new NewUserModel();
+                    OnPropertyChanged(nameof(NewUser));
+                    SelectedGender = GenderOptions.FirstOrDefault();
+                    ErrMessage = string.Empty;
+
+                    // Chuyển sang tab Đăng nhập + điền sẵn username
+                    AuthViewModel?.SwitchToLogin(registeredUsername);
                 }
-
-
-                NewUser = new NewUserModel();
-                OnPropertyChanged(nameof(NewUser));
-                ErrMessage = "";
+                else if (res == 0)
+                {
+                    ErrMessage = "Tên tài khoản đã tồn tại. Vui lòng chọn tên khác.";
+                }
+                else
+                {
+                    ErrMessage = "Đăng kí thất bại. Vui lòng thử lại.";
+                }
             }
             catch (Exception ex)
             {
                 ErrMessage = "Lỗi Kết Nối: " + ex.Message;
-               
             }
-
-           
         }
 
         public bool CanExecuteRegister()

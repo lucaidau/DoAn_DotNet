@@ -17,7 +17,7 @@ namespace DA_QuanLiThuVien.ViewModels
         private string _password;
         private string _errMessage;
 
-        public string Username { get => UserSession.UserFullName; set { UserSession.UserFullName = value; OnPropertyChanged(); } }
+        public string Username { get => _username; set { _username = value; OnPropertyChanged(); } }
         public string Password { get => _password; set => _password = value; }
         public string ErrMessage { get => _errMessage; set { _errMessage = value; OnPropertyChanged(); } }
 
@@ -42,10 +42,8 @@ namespace DA_QuanLiThuVien.ViewModels
 
         private async Task Login()
         {
-            // ── TÀI KHOẢN DEMO TĨNH (không cần DB) ──────────────────────────
-            // Thủ Thư : admin / admin
-            // Đọc Giả : reader / reader
-            if (Username == "admin123" && Password == "admin")
+            // Tài khoản demo (fallback khi chưa có DB)
+            if (Username == "admin" && Password == "admin")
             {
                 UserSession.UserID       = 0;
                 UserSession.UserFullName = "Quản Trị Demo";
@@ -66,7 +64,6 @@ namespace DA_QuanLiThuVien.ViewModels
                 OnLoginSuccess?.Invoke();
                 return;
             }
-            // ─────────────────────────────────────────────────────────────────
 
             try
             {
@@ -89,7 +86,6 @@ namespace DA_QuanLiThuVien.ViewModels
                         await Task.Delay(1000);
 
                         OnLoginSuccess?.Invoke();
-                        MessageBox.Show("Thông tin người dùng: " + UserSession.UserFullName + " - " + UserSession.UserRole, "Thông Tin Đăng Nhập", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
