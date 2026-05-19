@@ -1,4 +1,4 @@
-CREATE PROCEDURE sp_DangNhap
+CREATE OR ALTER PROCEDURE sp_DangNhap
     @userName VARCHAR(50),
     @hashPass VARCHAR(100)
 AS
