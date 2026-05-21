@@ -74,7 +74,7 @@
             <Button Grid.Column="4" Width="130" Height="36" Content="Tạo phiếu mượn" Background="#0B6E4F" Foreground="White" BorderThickness="0" FontWeight="Bold" />
         </Grid>
 
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" GridLinesVisibility="Horizontal" HeadersVisibility="Column" RowHeaderWidth="0" Background="#FCFDFF" BorderThickness="0" ItemsSource="{Binding LoanRecords}">
+        <DataGrid x:Name="DgMuonTra" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" GridLinesVisibility="Horizontal" HeadersVisibility="Column" RowHeaderWidth="0" Background="#FCFDFF" BorderThickness="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã phiếu" Binding="{Binding LoanId}" Width="*" />
                 <DataGridTextColumn Header="Độc giả" Binding="{Binding ReaderName}" Width="1.8*" />

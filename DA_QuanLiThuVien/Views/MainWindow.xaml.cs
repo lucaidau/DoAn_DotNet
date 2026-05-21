@@ -37,17 +37,25 @@ namespace DA_QuanLiThuVien.Views
             var defaultFg = new System.Windows.Media.SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#0B2545"));
             
             BtnQuanLySach.Background = defaultBg;
-            BtnDocGia.Background = defaultBg;
+            BtnQuanLyDanhMuc.Background = defaultBg;
+            BtnQuanLyNhapSach.Background = defaultBg;
             BtnQuanLyTKDocGia.Background = defaultBg;
             BtnMuonTra.Background = defaultBg;
+            BtnQuanLyPhieuPhat.Background = defaultBg;
+            BtnXyLyYeuCau.Background = defaultBg;
             BtnBaoCao.Background = defaultBg;
+            BtnTienIch.Background = defaultBg;
             BtnCaiDat.Background = defaultBg;
 
             BtnQuanLySach.Foreground = defaultFg;
-            BtnDocGia.Foreground = defaultFg;
+            BtnQuanLyDanhMuc.Foreground = defaultFg;
+            BtnQuanLyNhapSach.Foreground = defaultFg;
             BtnQuanLyTKDocGia.Foreground = defaultFg;
             BtnMuonTra.Foreground = defaultFg;
+            BtnQuanLyPhieuPhat.Foreground = defaultFg;
+            BtnXyLyYeuCau.Foreground = defaultFg;
             BtnBaoCao.Foreground = defaultFg;
+            BtnTienIch.Foreground = defaultFg;
             BtnCaiDat.Foreground = defaultFg;
 
             if (BtnTimKiemSach != null)
@@ -74,11 +82,18 @@ namespace DA_QuanLiThuVien.Views
             MainContent.Content = new UcQuanLySach();
         }
 
-        private void BtnDocGia_Click(object sender, RoutedEventArgs e)
+        private void BtnQuanLyDanhMuc_Click(object sender, RoutedEventArgs e)
         {
             SetActiveButton((System.Windows.Controls.Button)sender);
-            MainContent.Content = new UcDocGia();
+            MainContent.Content = new UcQuanLyDanhMuc();
         }
+
+        private void BtnQuanLyNhapSach_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveButton((System.Windows.Controls.Button)sender);
+            MainContent.Content = new UcQuanLyNhapSach();
+        }
+
 
         private void BtnQuanLyTKDocGia_Click(object sender, RoutedEventArgs e)
         {
@@ -92,10 +107,28 @@ namespace DA_QuanLiThuVien.Views
             MainContent.Content = new UcMuonTra();
         }
 
+        private void BtnQuanLyPhieuPhat_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveButton((System.Windows.Controls.Button)sender);
+            MainContent.Content = new UcQuanLyPhieuPhat();
+        }
+
+        private void BtnXyLyYeuCau_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveButton((System.Windows.Controls.Button)sender);
+            MainContent.Content = new UcXyLyYeuCau();
+        }
+
         private void BtnBaoCao_Click(object sender, RoutedEventArgs e)
         {
             SetActiveButton((System.Windows.Controls.Button)sender);
             MainContent.Content = new UcBaoCao();
+        }
+
+        private void BtnTienIch_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveButton((System.Windows.Controls.Button)sender);
+            MainContent.Content = new UcTienIch();
         }
 
         private void BtnCaiDat_Click(object sender, RoutedEventArgs e)

@@ -19,9 +19,9 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <DatePicker Grid.Column="0" Height="34" Margin="0,0,10,0" SelectedDate="{Binding ReportFromDate}" HorizontalAlignment="Stretch" />
-            <DatePicker Grid.Column="1" Height="34" Margin="0,0,10,0" SelectedDate="{Binding ReportToDate}" HorizontalAlignment="Stretch" />
-            <ComboBox Grid.Column="2" Height="34" Margin="0,0,10,0" ItemsSource="{Binding ReportTypes}" SelectedItem="{Binding SelectedReportType}" HorizontalAlignment="Stretch" />
+            <DatePicker Grid.Column="0" Height="34" Margin="0,0,10,0" SelectedDate="{Binding ReportFromDate, Mode=OneWay}" HorizontalAlignment="Stretch" />
+            <DatePicker Grid.Column="1" Height="34" Margin="0,0,10,0" SelectedDate="{Binding ReportToDate, Mode=OneWay}" HorizontalAlignment="Stretch" />
+            <ComboBox Grid.Column="2" Height="34" Margin="0,0,10,0" ItemsSource="{Binding ReportTypes}" SelectedItem="{Binding SelectedReportType, Mode=OneWay}" HorizontalAlignment="Stretch" />
             <Button Grid.Column="3" Content="Xem báo cáo" Width="110" Height="34" Background="#134074" Foreground="White" BorderThickness="0" />
         </Grid>
 

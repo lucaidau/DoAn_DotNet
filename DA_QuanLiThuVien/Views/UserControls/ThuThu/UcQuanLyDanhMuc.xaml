@@ -1,0 +1,85 @@
+<UserControl x:Class="DA_QuanLiThuVien.Views.UserControls.ThuThu.UcQuanLyDanhMuc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="760" d:DesignWidth="1220">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#F4F8FD" BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Quản lý Danh mục (Thể loại, Tác giả, Nhà Xuất Bản)" FontWeight="Bold" FontSize="18" Foreground="#0B2545" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Row="1">
+            <TabControl BorderThickness="1" BorderBrush="#D5DFEA" Background="#FCFDFF">
+                <TabItem Header="Thể Loại Sách" FontSize="14" FontWeight="SemiBold">
+                    <Grid Margin="10">
+                        <DataGrid x:Name="DgTheLoai" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" Background="#FCFDFF" BorderThickness="0" GridLinesVisibility="Horizontal" RowHeaderWidth="0">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#E8F0FA" />
+                                    <Setter Property="Foreground" Value="#0B2545" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                    <Setter Property="Height" Value="38" />
+                                    <Setter Property="Padding" Value="10,0" />
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Mã Thể Loại" Binding="{Binding MaTL}" Width="*" />
+                                <DataGridTextColumn Header="Tên Thể Loại" Binding="{Binding TenTL}" Width="3*" />
+                                <DataGridTextColumn Header="Ghi Chú" Binding="{Binding GhiChu}" Width="2*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Tác Giả" FontSize="14" FontWeight="SemiBold">
+                    <Grid Margin="10">
+                        <DataGrid x:Name="DgTacGia" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" Background="#FCFDFF" BorderThickness="0" GridLinesVisibility="Horizontal" RowHeaderWidth="0">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#E8F0FA" />
+                                    <Setter Property="Foreground" Value="#0B2545" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                    <Setter Property="Height" Value="38" />
+                                    <Setter Property="Padding" Value="10,0" />
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Mã Tác Giả" Binding="{Binding MaTG}" Width="*" />
+                                <DataGridTextColumn Header="Tên Tác Giả" Binding="{Binding TenTG}" Width="2*" />
+                                <DataGridTextColumn Header="Quốc Tịch" Binding="{Binding QuocTich}" Width="*" />
+                                <DataGridTextColumn Header="Ghi Chú" Binding="{Binding GhiChu}" Width="2*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Nhà Xuất Bản" FontSize="14" FontWeight="SemiBold">
+                    <Grid Margin="10">
+                        <DataGrid x:Name="DgNhaXuatBan" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" Background="#FCFDFF" BorderThickness="0" GridLinesVisibility="Horizontal" RowHeaderWidth="0">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#E8F0FA" />
+                                    <Setter Property="Foreground" Value="#0B2545" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                    <Setter Property="Height" Value="38" />
+                                    <Setter Property="Padding" Value="10,0" />
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Mã NXB" Binding="{Binding MaNXB}" Width="*" />
+                                <DataGridTextColumn Header="Tên NXB" Binding="{Binding TenNXB}" Width="2*" />
+                                <DataGridTextColumn Header="Địa Chỉ" Binding="{Binding DiaChi}" Width="2*" />
+                                <DataGridTextColumn Header="Liên Hệ" Binding="{Binding LienHe}" Width="*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</UserControl>

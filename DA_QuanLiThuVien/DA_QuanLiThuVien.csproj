@@ -170,6 +170,21 @@
     <Compile Include="Views\UserControls\ThuThu\UcQuanLySach.xaml.cs">
       <DependentUpon>UcQuanLySach.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\ThuThu\UcQuanLyDanhMuc.xaml.cs">
+      <DependentUpon>UcQuanLyDanhMuc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ThuThu\UcQuanLyNhapSach.xaml.cs">
+      <DependentUpon>UcQuanLyNhapSach.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ThuThu\UcQuanLyPhieuPhat.xaml.cs">
+      <DependentUpon>UcQuanLyPhieuPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ThuThu\UcTienIch.xaml.cs">
+      <DependentUpon>UcTienIch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ThuThu\UcXyLyYeuCau.xaml.cs">
+      <DependentUpon>UcXyLyYeuCau.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -247,6 +262,26 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\UserControls\ThuThu\UcQuanLySach.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\ThuThu\UcQuanLyDanhMuc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\ThuThu\UcQuanLyNhapSach.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\ThuThu\UcQuanLyPhieuPhat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\ThuThu\UcTienIch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\ThuThu\UcXyLyYeuCau.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

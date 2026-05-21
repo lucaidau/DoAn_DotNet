@@ -1,0 +1,26 @@
+<UserControl x:Class="DA_QuanLiThuVien.Views.UserControls.ThuThu.UcTienIch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="760" d:DesignWidth="1220">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#F4F8FD" BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Tiện ích hệ thống (In mã vạch, In thẻ độc giả)" FontWeight="Bold" FontSize="18" Foreground="#0B2545" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Row="1" Background="White">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="Tạo và In Mã Vạch Sách" Width="200" Height="50" Margin="10" Background="#134074" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="0" />
+                <Button Content="In Thẻ Độc Giả" Width="200" Height="50" Margin="10" Background="#1E4D8C" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="0" />
+                <Button Content="Gửi Email Thông Báo" Width="200" Height="50" Margin="10" Background="#5E728B" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="0" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -13,7 +13,6 @@ namespace DA_QuanLiThuVien.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        private string _username;
         private string _password;
         private string _errMessage;
 
