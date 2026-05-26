@@ -12,8 +12,8 @@ namespace DA_QuanLiThuVien.ViewModels.Main
 {
     public class MainWindowViewModel:BaseViewModel
     {
-        public ReaderViewModel ReaderVM { get; set; }
-        public LibrarianViewModel LibrarianVM { get; set; }
+        public ReaderViewModel ReaderVM { get; }
+        public LibrarianViewModel LibrarianVM { get; }
 
         private object _currentView;
         public object CurrentView 
@@ -27,7 +27,24 @@ namespace DA_QuanLiThuVien.ViewModels.Main
         }
 
         private string _role;
-        public string Role { get => _role; set { _role = value; OnPropertyChanged(); } }
+        public string Role
+        {
+            get => _role;
+            set
+            {
+                if (_role == value)
+                {
+                    return;
+                }
+
+                _role = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(Title));
+                OnPropertyChanged(nameof(LibrarianVisibility));
+                OnPropertyChanged(nameof(ReaderVisibility));
+                SetupModules(_role);
+            }
+        }
         
         public string Title
         {
@@ -36,7 +53,7 @@ namespace DA_QuanLiThuVien.ViewModels.Main
                 if (Role == "Thủ Thư")
                     return "Quản lý danh mục sách, cập nhật nhanh và theo dõi tình trạng hiện tại";
                 else
-                    return "Tìm kiếm sách, ";
+                    return "Tìm kiếm sách, xem lịch sử mượn trả và quản lý giỏ sách";
             }
         }
 
@@ -46,23 +63,31 @@ namespace DA_QuanLiThuVien.ViewModels.Main
 
         private void SetupModules(string role)
         {
-            if (Role == "Thủ Thư")
+            if (role == "Thủ Thư")
             {
-                LibrarianVM = new LibrarianViewModel();
                 CurrentView = LibrarianVM;
             }
             else
             {
-                ReaderVM = new ReaderViewModel();
                 CurrentView = ReaderVM;
             }
         }
 
         public MainWindowViewModel()
         {
+            ReaderVM = new ReaderViewModel();
+            LibrarianVM = new LibrarianViewModel();
             Role = UserSession.UserRole;
-            OnPropertyChanged(nameof(Title));
-            SetupModules(Role);
+        }
+
+        public void SwitchToLibrarian()
+        {
+            Role = "Thủ Thư";
+        }
+
+        public void SwitchToReader()
+        {
+            Role = "Đọc Giả";
         }
     }
 }
