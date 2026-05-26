@@ -1,0 +1,53 @@
+<UserControl x:Class="DA_QuanLiThuVien.Views.Librarian.Features.CaiDatView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DA_QuanLiThuVien.Views.Librarian.Features"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Cấu hình hệ thống và quy định mượn trả" Margin="0,0,0,16" Foreground="#6B7A90" />
+
+        <StackPanel Grid.Row="1">
+            <Border BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="10" Padding="16" Margin="0,0,0,16">
+                <StackPanel>
+                    <TextBlock Text="Thiết lập chung" FontWeight="SemiBold" Foreground="#0B2545" />
+                    <StackPanel Margin="0,12,0,0">
+                        <CheckBox Content="Tự động nhắc hạn trả" />
+                        <CheckBox Content="Cho phép gia hạn online" Margin="0,6,0,0" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="10" Padding="16">
+                <StackPanel>
+                    <TextBlock Text="Quy định mượn" FontWeight="SemiBold" Foreground="#0B2545" />
+                    <Grid Margin="0,12,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Margin="0,0,12,0">
+                            <TextBlock Text="Số sách tối đa" />
+                            <TextBox Height="30" Margin="0,4,0,12" />
+                            <TextBlock Text="Số ngày mượn" />
+                            <TextBox Height="30" Margin="0,4,0,0" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="Phí trễ hạn/ngày" />
+                            <TextBox Height="30" Margin="0,4,0,12" />
+                            <TextBlock Text="Giới hạn gia hạn" />
+                            <TextBox Height="30" Margin="0,4,0,0" />
+                        </StackPanel>
+                    </Grid>
+                    <Button Content="Lưu Cài Đặt" Margin="0,16,0,0" Padding="12,6" Background="#0B2545" Foreground="White" BorderThickness="0" HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

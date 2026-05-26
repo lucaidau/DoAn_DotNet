@@ -1,0 +1,41 @@
+<UserControl x:Class="DA_QuanLiThuVien.Views.Librarian.Features.QuanLyTaiKhoanDocGiaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DA_QuanLiThuVien.Views.Librarian.Features"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Quản lý đăng nhập, khóa/mở tài khoản" Margin="0,0,0,16" Foreground="#6B7A90" />
+
+        <Border Grid.Row="1" BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="10" Padding="12" Margin="0,0,0,16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Height="30" Text="Tìm theo tên đăng nhập/ email" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="12,0,0,0">
+                    <Button Content="Đặt lại mật khẩu" Padding="12,6" Background="#E8F1FF" Foreground="#0B2545" BorderThickness="0" Margin="0,0,8,0" />
+                    <Button Content="Khóa/Mở" Padding="12,6" Background="#FFE8E8" Foreground="#9A2A2A" BorderThickness="0" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="10" Padding="12">
+            <StackPanel>
+                <TextBlock Text="Danh sách tài khoản độc giả" FontWeight="SemiBold" Foreground="#0B2545" />
+                <Border Background="#F8FAFD" CornerRadius="8" Margin="0,12,0,0" Padding="16">
+                    <TextBlock Text="Bảng tài khoản độc giả sẽ hiển thị tại đây" Foreground="#6B7A90" />
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

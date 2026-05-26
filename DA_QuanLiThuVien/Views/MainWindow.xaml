@@ -7,6 +7,8 @@
         xmlns:vm="clr-namespace:DA_QuanLiThuVien.ViewModels.Main"
         xmlns:vmReader="clr-namespace:DA_QuanLiThuVien.ViewModels.Main.Reader"
         xmlns:vmLibrarian="clr-namespace:DA_QuanLiThuVien.ViewModels.Main.Librarian"
+        xmlns:viewLibrarian="clr-namespace:DA_QuanLiThuVien.Views.Librarian"
+        xmlns:viewReader="clr-namespace:DA_QuanLiThuVien.Views.Reader"
         mc:Ignorable="d"
         Title="Quản lý thư viện" Height="760" Width="1220"
         WindowStartupLocation="CenterScreen"
@@ -51,8 +53,17 @@
         </Border>
 
 
-        <!-- Menu theo vai trò được load từ code-behind -->
-        <ContentControl x:Name="MainContent" Grid.Row="1"/>
+        <!-- Menu theo vai trò được binding từ ViewModel -->
+        <ContentControl x:Name="MainContent" Grid.Row="1" Content="{Binding CurrentView}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type vmReader:ReaderViewModel}">
+                    <viewReader:ReaderView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vmLibrarian:LibrarianViewModel}">
+                    <viewLibrarian:LibrarianView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
 
     </Grid>
 </Window>

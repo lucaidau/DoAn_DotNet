@@ -135,6 +135,17 @@
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
     <Compile Include="ViewModels\Auth\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Main\Librarian\LibrarianViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\MenuItem.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\BaoCaoViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\CaiDatViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\MuonTraViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\NhapSachViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\QuanLyBanSaoSachViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\QuanLyDocGiaViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\QuanLySachViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\QuanLyTacGiaViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\QuanLyTaiKhoanDocGiaViewModel.cs" />
+    <Compile Include="ViewModels\Main\Librarian\Features\ThongKeNangCaoViewModel.cs" />
     <Compile Include="ViewModels\Main\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Main\Reader\ReaderViewModel.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
@@ -142,6 +153,42 @@
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\LibrarianView.xaml.cs">
+      <DependentUpon>LibrarianView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\BaoCaoView.xaml.cs">
+      <DependentUpon>BaoCaoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\CaiDatView.xaml.cs">
+      <DependentUpon>CaiDatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\MuonTraView.xaml.cs">
+      <DependentUpon>MuonTraView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\NhapSachView.xaml.cs">
+      <DependentUpon>NhapSachView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\QuanLyBanSaoSachView.xaml.cs">
+      <DependentUpon>QuanLyBanSaoSachView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\QuanLyDocGiaView.xaml.cs">
+      <DependentUpon>QuanLyDocGiaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\QuanLySachView.xaml.cs">
+      <DependentUpon>QuanLySachView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\QuanLyTacGiaView.xaml.cs">
+      <DependentUpon>QuanLyTacGiaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\QuanLyTaiKhoanDocGiaView.xaml.cs">
+      <DependentUpon>QuanLyTaiKhoanDocGiaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Librarian\Features\ThongKeNangCaoView.xaml.cs">
+      <DependentUpon>ThongKeNangCaoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reader\ReaderView.xaml.cs">
+      <DependentUpon>ReaderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\DocGia\UcMenuDocGia.xaml.cs">
       <DependentUpon>UcMenuDocGia.xaml</DependentUpon>
@@ -154,27 +201,6 @@
     </Compile>
     <Compile Include="Views\UserControls\DocGia\UcTimKiemSach.xaml.cs">
       <DependentUpon>UcTimKiemSach.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\ThuThu\UcDocGia.xaml.cs">
-      <DependentUpon>UcDocGia.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\ThuThu\UcQuanLyTKDocGia.xaml.cs">
-      <DependentUpon>UcQuanLyTKDocGia.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\ThuThu\UcBaoCao.xaml.cs">
-      <DependentUpon>UcBaoCao.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\ThuThu\UcCaiDat.xaml.cs">
-      <DependentUpon>UcCaiDat.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\ThuThu\UcMuonTra.xaml.cs">
-      <DependentUpon>UcMuonTra.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\ThuThu\UcMenuThuThu.xaml.cs">
-      <DependentUpon>UcMenuThuThu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\ThuThu\UcQuanLySach.xaml.cs">
-      <DependentUpon>UcQuanLySach.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +246,54 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Librarian\LibrarianView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\BaoCaoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\CaiDatView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\MuonTraView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\NhapSachView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\QuanLyBanSaoSachView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\QuanLyDocGiaView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\QuanLySachView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\QuanLyTacGiaView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\QuanLyTaiKhoanDocGiaView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Librarian\Features\ThongKeNangCaoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reader\ReaderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\UserControls\DocGia\UcMenuDocGia.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -233,34 +307,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\UserControls\DocGia\UcTimKiemSach.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControls\ThuThu\UcDocGia.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControls\ThuThu\UcQuanLyTKDocGia.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControls\ThuThu\UcBaoCao.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControls\ThuThu\UcCaiDat.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControls\ThuThu\UcMuonTra.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControls\ThuThu\UcMenuThuThu.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControls\ThuThu\UcQuanLySach.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

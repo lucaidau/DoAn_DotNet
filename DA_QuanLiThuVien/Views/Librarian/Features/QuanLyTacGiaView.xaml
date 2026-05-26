@@ -1,0 +1,58 @@
+<UserControl x:Class="DA_QuanLiThuVien.Views.Librarian.Features.QuanLyTacGiaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DA_QuanLiThuVien.Views.Librarian.Features"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Quản lý tác giả, nhà xuất bản, thể loại" Margin="0,0,0,16" Foreground="#6B7A90" />
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="10" Padding="12" Margin="0,0,12,0">
+                <StackPanel>
+                    <TextBlock Text="Tác giả" FontWeight="SemiBold" Foreground="#0B2545" />
+                    <TextBox Margin="0,10,0,8" Height="30" Text="Tên tác giả" />
+                    <Button Content="Thêm tác giả" Padding="10,6" Background="#0B2545" Foreground="White" BorderThickness="0" />
+                    <Border Background="#F8FAFD" CornerRadius="8" Margin="0,12,0,0" Padding="10">
+                        <TextBlock Text="Danh sách tác giả" Foreground="#6B7A90" />
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="10" Padding="12" Margin="0,0,12,0">
+                <StackPanel>
+                    <TextBlock Text="Nhà xuất bản" FontWeight="SemiBold" Foreground="#0B2545" />
+                    <TextBox Margin="0,10,0,8" Height="30" Text="Tên NXB" />
+                    <Button Content="Thêm NXB" Padding="10,6" Background="#0B2545" Foreground="White" BorderThickness="0" />
+                    <Border Background="#F8FAFD" CornerRadius="8" Margin="0,12,0,0" Padding="10">
+                        <TextBlock Text="Danh sách NXB" Foreground="#6B7A90" />
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="10" Padding="12">
+                <StackPanel>
+                    <TextBlock Text="Thể loại" FontWeight="SemiBold" Foreground="#0B2545" />
+                    <TextBox Margin="0,10,0,8" Height="30" Text="Tên thể loại" />
+                    <Button Content="Thêm thể loại" Padding="10,6" Background="#0B2545" Foreground="White" BorderThickness="0" />
+                    <Border Background="#F8FAFD" CornerRadius="8" Margin="0,12,0,0" Padding="10">
+                        <TextBlock Text="Danh sách thể loại" Foreground="#6B7A90" />
+                    </Border>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

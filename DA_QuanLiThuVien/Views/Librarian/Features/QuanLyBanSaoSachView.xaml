@@ -1,0 +1,45 @@
+<UserControl x:Class="DA_QuanLiThuVien.Views.Librarian.Features.QuanLyBanSaoSachView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DA_QuanLiThuVien.Views.Librarian.Features"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Quản lý bản sao và tình trạng sách" Margin="0,0,0,16" Foreground="#6B7A90" />
+
+        <Border Grid.Row="1" BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="10" Padding="12" Margin="0,0,0,16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Height="30" Text="Tìm theo mã bản sao / tên sách" />
+                <ComboBox Grid.Column="1" Margin="12,0,12,0" Height="30">
+                    <ComboBoxItem Content="Tất cả tình trạng" IsSelected="True" />
+                    <ComboBoxItem Content="Tốt" />
+                    <ComboBoxItem Content="Hỏng" />
+                    <ComboBoxItem Content="Mất" />
+                </ComboBox>
+                <Button Grid.Column="2" Content="Cập nhật tình trạng" Padding="12,6" Background="#0B2545" Foreground="White" BorderThickness="0" />
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" BorderBrush="#D5DFEA" BorderThickness="1" CornerRadius="10" Padding="12">
+            <StackPanel>
+                <TextBlock Text="Danh sách bản sao" FontWeight="SemiBold" Foreground="#0B2545" />
+                <Border Background="#F8FAFD" CornerRadius="8" Margin="0,12,0,0" Padding="16">
+                    <TextBlock Text="Bảng bản sao và tình trạng sẽ hiển thị tại đây" Foreground="#6B7A90" />
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
