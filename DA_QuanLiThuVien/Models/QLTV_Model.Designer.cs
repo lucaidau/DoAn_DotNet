@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Lucaidau\Learning\DoAn\Ki4\DotNet\DoAn_DotNet\DA_QuanLiThuVien\Models\QLTV_Model.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\C#\DoAn_DotNet\DA_QuanLiThuVien\Models\QLTV_Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

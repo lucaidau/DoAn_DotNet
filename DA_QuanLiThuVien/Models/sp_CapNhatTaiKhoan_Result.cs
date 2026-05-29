@@ -10,14 +10,10 @@
 namespace DA_QuanLiThuVien.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class sp_CapNhatTaiKhoan_Result
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int Result { get; set; }
+        public string Message { get; set; }
     }
 }

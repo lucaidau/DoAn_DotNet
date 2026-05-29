@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,15 +36,14 @@ namespace DA_QuanLiThuVien.ViewModels.Main
                 if (Role == "Thủ Thư")
                     return "Quản lý danh mục sách, cập nhật nhanh và theo dõi tình trạng hiện tại";
                 else
-                    return "Tìm kiếm sách, ";
+                    return "Tìm kiếm sách, xem thông tin cá nhân và quản lý phiếu mượn";
             }
         }
 
         public Visibility LibrarianVisibility => Role == "Thủ Thư" ? Visibility.Visible : Visibility.Collapsed;
         public Visibility ReaderVisibility => Role == "Đọc Giả" ? Visibility.Visible : Visibility.Collapsed;
 
-
-        private void SetupModules(string role)
+        private void SetupModules()
         {
             if (Role == "Thủ Thư")
             {
@@ -62,7 +61,7 @@ namespace DA_QuanLiThuVien.ViewModels.Main
         {
             Role = UserSession.UserRole;
             OnPropertyChanged(nameof(Title));
-            SetupModules(Role);
+            SetupModules();
         }
     }
 }
