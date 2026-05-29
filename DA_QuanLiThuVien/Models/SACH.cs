@@ -25,6 +25,9 @@ namespace DA_QuanLiThuVien.Models
         public string TenSach { get; set; }
         public Nullable<int> IDNhaPhatHanh { get; set; }
         public Nullable<int> IDNguoiThem { get; set; }
+        public string TheLoai { get; set; }
+        public string ISBN { get; set; }
+        public Nullable<int> NamXuatBan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BAN_SAO_SACH> BAN_SAO_SACH { get; set; }

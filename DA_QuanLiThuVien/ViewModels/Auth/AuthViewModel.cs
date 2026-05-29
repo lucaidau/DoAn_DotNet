@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +29,15 @@ namespace DA_QuanLiThuVien.ViewModels
         {
             LoginVM = new LoginViewModel();
             RegisterVM = new RegisterViewModel(this);
+        }
+
+        /// <summary>Chuyển sang tab Đăng nhập, tự điền username vừa đăng ký.</summary>
+        public void SwitchToLogin(string prefillUsername = null)
+        {
+            if (!string.IsNullOrEmpty(prefillUsername))
+                LoginVM.Username = prefillUsername;
+
+            SelectedTabIndex = 1;
         }
 
     }

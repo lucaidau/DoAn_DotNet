@@ -42,9 +42,20 @@ namespace DA_QuanLiThuVien.Views
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            this.Closing -= Window_Closing;
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
+            var result = MessageBox.Show(
+                "Bạn có chắc muốn thoát khỏi ứng dụng?",
+                "Xác nhận thoát",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

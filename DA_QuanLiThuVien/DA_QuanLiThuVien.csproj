@@ -113,10 +113,36 @@
     <Compile Include="Models\SACH.cs">
       <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_BaoCaoThongKe_Result.cs">
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_CapNhatTaiKhoan_Result.cs">
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_DangNhap_Result.cs">
       <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
+
+
+    <Compile Include="Models\sp_LayDanhSachTaiKhoan_Result.cs">
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_LayPhieuMuon_Result.cs">
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_LaySachDocGia_Result.cs">
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_LayThongTinDocGia_Result.cs">
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_TaoPhieuMuon_Result.cs">
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_ThemSach_Result.cs">
+      <DependentUpon>QLTV_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_TraSach_Result.cs">
       <DependentUpon>QLTV_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TAC_GIA.cs">
